@@ -10,27 +10,6 @@ namespace Fasetto.ViewModels;
 
 public partial class MainWindowViewModel : ObservableObject
 {
-    /// <summary>
-    /// 窗口状态
-    /// </summary>
-    private WindowState _currentWindowState;
-
-    public WindowState CurrentWindowState
-    {
-        get { return _currentWindowState; }
-        set 
-        { 
-            if (SetProperty(ref _currentWindowState, value))
-            {
-                if (value == WindowState.Maximized)
-                {
-                    OuterMarginSize = 0;
-                    WindowCornerRadius = 0;
-                }
-            }
-        }
-    }
-
     [ObservableProperty]
     private string _title = string.Empty;
 
@@ -51,6 +30,26 @@ public partial class MainWindowViewModel : ObservableObject
     /// </summary>
     [ObservableProperty]
     private int _windowCornerRadius = 10;
+
+    /// <summary>
+    /// 窗口状态
+    /// </summary>
+    private WindowState _currentWindowState;
+
+    public WindowState CurrentWindowState
+    {
+        get { return _currentWindowState; }
+        set
+        {
+            if (SetProperty(ref _currentWindowState, value))
+            {
+                if (value == WindowState.Maximized)
+                    OuterMarginSize = 0;
+                else
+                    OuterMarginSize = 10;
+            }
+        }
+    }
 
     public MainWindowViewModel()
     {
