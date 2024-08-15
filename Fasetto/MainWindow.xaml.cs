@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using Fasetto.ViewModels;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,6 +20,7 @@ namespace Fasetto
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new MainWindowViewModel();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

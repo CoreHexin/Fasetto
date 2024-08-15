@@ -46,10 +46,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
   </ItemGroup>
 
@@ -108,6 +104,10 @@
     <Resource Include="Fonts\Lato-ThinItalic.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ValueConverters\" />
   </ItemGroup>
 
 </Project>

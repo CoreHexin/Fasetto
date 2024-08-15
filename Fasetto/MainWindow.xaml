@@ -2,17 +2,32 @@
     x:Class="Fasetto.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:Fasetto.ValueConverters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Fasetto"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="MainWindow"
+    xmlns:vm="clr-namespace:Fasetto.ViewModels"
+    Title="Fasetto"
     Width="800"
     Height="450"
+    d:DataContext="{d:DesignInstance vm:MainWindowViewModel}"
     AllowsTransparency="True"
     Icon="Images/Logo/logo-small.png"
+    WindowStartupLocation="CenterScreen"
+    WindowState="{Binding CurrentWindowState, Mode=TwoWay}"
     WindowStyle="None"
     mc:Ignorable="d">
-    <StackPanel>
-        
-    </StackPanel>
+
+    <Window.Resources>
+        <converters:NumberToThicknessConverter x:Key="NumberToThicknessConverter" />
+    </Window.Resources>
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome
+            CaptionHeight="42"
+            GlassFrameThickness="0"
+            ResizeBorderThickness="{Binding ResizeBorder}" />
+    </WindowChrome.WindowChrome>
+
+    <Grid Background="Red" />
 </Window>
