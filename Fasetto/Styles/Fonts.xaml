@@ -1,0 +1,20 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <FontFamily x:Key="LatoRegular">pack://application,,,/Fonts/#Lato Regular</FontFamily>
+    <FontFamily x:Key="LatoThin">pack://application,,,/Fonts/#Lato Thin</FontFamily>
+
+    <Style x:Key="BaseTextStyle" TargetType="Control">
+        <Setter Property="FontFamily" Value="{StaticResource LatoThin}" />
+    </Style>
+
+    <!--  设置全局字体  -->
+    <Style BasedOn="{StaticResource BaseTextStyle}" TargetType="Button" />
+    <Style BasedOn="{StaticResource BaseTextStyle}" TargetType="Label" />
+    <Style BasedOn="{StaticResource BaseTextStyle}" TargetType="TextBox" />
+    <Style BasedOn="{StaticResource BaseTextStyle}" TargetType="ListView" />
+
+    <Style TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource LatoThin}" />
+    </Style>
+
+</ResourceDictionary>
