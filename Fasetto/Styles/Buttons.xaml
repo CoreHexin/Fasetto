@@ -50,4 +50,25 @@
         </Style.Triggers>
     </Style>
 
+    <!--  Window Close Button  -->
+    <Style
+        x:Key="WindowCloseButtonStyle"
+        BasedOn="{StaticResource WindowControlButtonStyle}"
+        TargetType="Button">
+        <!--  设置右上角圆角，否则当鼠标悬停在关闭按钮上时，右上角会从圆角变成直角  -->
+        <Setter Property="Border.CornerRadius" Value="0 10 0 0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border
+                        Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        CornerRadius="{TemplateBinding Border.CornerRadius}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>
