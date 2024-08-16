@@ -26,7 +26,7 @@
                     <ControlTemplate TargetType="Window">
 
                         <!--  调整窗口大小的外边界  -->
-                        <Border Background="#01eeeeee">
+                        <Border>
                             <Grid Margin="{Binding OuterMarginSize}">
                                 <!--  窗口边界和阴影效果  -->
                                 <Border Background="{StaticResource ForegroundLightColorBrush}" CornerRadius="{Binding WindowCornerRadius}">

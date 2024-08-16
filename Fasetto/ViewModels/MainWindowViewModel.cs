@@ -15,10 +15,10 @@ public partial class MainWindowViewModel : ObservableObject
     private string _title = string.Empty;
 
     /// <summary>
-    /// 调整窗口大小的边框宽度
+    /// 调整窗口大小的边框宽度, 宽度包含了窗口外边距的值
     /// </summary>
     [ObservableProperty]
-    private double _resizeBorder = 6;
+    private double _resizeBorder = 16;
 
     /// <summary>
     /// 窗口外边距, 用来实现阴影效果, 当窗口最大化时，该值为0
