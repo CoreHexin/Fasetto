@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,5 +55,17 @@ public partial class MainWindowViewModel : ObservableObject
     public MainWindowViewModel()
     {
         CurrentWindowState = WindowState.Normal;
+    }
+
+    [RelayCommand]
+    private void Minimize()
+    {
+        CurrentWindowState = WindowState.Minimized;
+    }
+
+    [RelayCommand]
+    private void Maximize()
+    {
+        CurrentWindowState ^= WindowState.Maximized;
     }
 }

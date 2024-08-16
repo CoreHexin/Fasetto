@@ -22,13 +22,58 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Window">
-                        <Border>
+
+                        <!--  调整窗口大小的外边界  -->
+                        <Border Background="#01eeeeee">
                             <Grid Margin="{Binding OuterMarginSize}">
+                                <!--  窗口边界和阴影效果  -->
                                 <Border Background="{StaticResource ForegroundLightColorBrush}" CornerRadius="{Binding WindowCornerRadius}">
                                     <Border.Effect>
-                                        <DropShadowEffect Opacity="0.5" ShadowDepth="0" />
+                                        <DropShadowEffect Opacity="0.2" ShadowDepth="0" />
                                     </Border.Effect>
                                 </Border>
+
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <!--  标题栏  -->
+                                        <RowDefinition Height="42" />
+                                        <!--  阴影效果  -->
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+
+                                    <!--  标题栏  -->
+                                    <Grid Grid.Row="0">
+                                        <Grid.ColumnDefinitions>
+                                            <!--  icon  -->
+                                            <ColumnDefinition Width="auto" />
+                                            <!--  标题  -->
+                                            <ColumnDefinition Width="*" />
+                                            <!--  窗口按钮  -->
+                                            <ColumnDefinition Width="auto" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Button Style="{StaticResource SystemIconButtonStyle}">
+                                            <Image Source="Images/Logo/logo-small.png" />
+                                        </Button>
+
+                                        <Viewbox Grid.Column="1">
+                                            <TextBlock Text="Fasetto" Style="{StaticResource HeaderTextStyle}"/>
+                                        </Viewbox>
+
+                                        <StackPanel Orientation="Horizontal" Grid.Column="2">
+                                            <Button Style="{StaticResource WindowControlButtonStyle}" Command="{Binding MinimizeCommand}">
+                                                <Image Source="Images/minimize.png" />
+                                            </Button>
+                                            <Button Style="{StaticResource WindowControlButtonStyle}" Command="{Binding MaximizeCommand}">
+                                                <Image Source="Images/maximize.png" />
+                                            </Button>
+                                            <Button Style="{StaticResource WindowControlButtonStyle}" x:Name="closeButton" Click="closeButton_Click">
+                                                <Image Source="Images/close.png" />
+                                            </Button>
+                                        </StackPanel>
+                                    </Grid>
+                                </Grid>
                             </Grid>
                         </Border>
                     </ControlTemplate>
