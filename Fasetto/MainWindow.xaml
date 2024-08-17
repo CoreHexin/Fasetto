@@ -2,6 +2,7 @@
     x:Class="Fasetto.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:Fasetto.ValueConverters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Fasetto"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -26,6 +27,13 @@
                         <!--  调整窗口大小的外边界  -->
                         <Border>
                             <Grid Margin="{Binding OuterMarginSize}">
+
+                                <!--  Opacity mask for corners on grid  -->
+                                <Border
+                                    x:Name="mask"
+                                    Background="{StaticResource ForegroundLightColorBrush}"
+                                    CornerRadius="{Binding WindowCornerRadius}" />
+
                                 <!--  窗口边界和阴影效果  -->
                                 <Border Background="{StaticResource ForegroundLightColorBrush}" CornerRadius="{Binding WindowCornerRadius}">
                                     <Border.Effect>
@@ -34,11 +42,14 @@
                                 </Border>
 
                                 <Grid>
+                                    <!--  不透明蒙版  -->
+                                    <Grid.OpacityMask>
+                                        <VisualBrush Visual="{Binding ElementName=mask}" />
+                                    </Grid.OpacityMask>
+
                                     <Grid.RowDefinitions>
                                         <!--  标题栏  -->
                                         <RowDefinition Height="42" />
-                                        <!--  标题栏下方的阴影效果  -->
-                                        <RowDefinition Height="auto" />
                                         <!--  页面内容区域  -->
                                         <RowDefinition Height="*" />
                                     </Grid.RowDefinitions>
@@ -54,7 +65,7 @@
                                             <ColumnDefinition Width="auto" />
                                         </Grid.ColumnDefinitions>
 
-                                        <Button Style="{StaticResource SystemIconButtonStyle}" Click="IconButton_click">
+                                        <Button Click="IconButton_click" Style="{StaticResource SystemIconButtonStyle}">
                                             <Image Source="Images/Logo/logo-small.png" />
                                         </Button>
 
@@ -69,37 +80,14 @@
                                             <Button Command="{Binding MaximizeCommand}" Style="{StaticResource WindowControlButtonStyle}">
                                                 <Image Source="Images/maximize.png" />
                                             </Button>
-                                            <Button Click="CloseButton_Click" Style="{StaticResource WindowCloseButtonStyle}">
+                                            <Button Click="CloseButton_Click" Style="{StaticResource WindowControlButtonStyle}">
                                                 <Image Source="Images/close.png" />
                                             </Button>
                                         </StackPanel>
                                     </Grid>
 
-                                    <!--  标题栏下方的阴影效果  -->
-                                    <Border
-                                        Grid.Row="1"
-                                        Height="6"
-                                        BorderThickness="0,0.2,0,0">
-                                        <!--  标题栏下方的渐变线条效果  -->
-                                        <Border.BorderBrush>
-                                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                                                <GradientStop Offset="0.0" Color="{StaticResource ForegroundLightColor}" />
-                                                <GradientStop Offset="0.5" Color="{StaticResource ForegroundMainColor}" />
-                                                <GradientStop Offset="1.0" Color="{StaticResource ForegroundLightColor}" />
-                                            </LinearGradientBrush>
-                                        </Border.BorderBrush>
-
-                                        <!--  标题栏下方的阴影效果  -->
-                                        <Border.Background>
-                                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                                <GradientStop Offset="0.0" Color="{StaticResource BackgroundVeryLightColor}" />
-                                                <GradientStop Offset="1.0" Color="{StaticResource ForegroundLightColor}" />
-                                            </LinearGradientBrush>
-                                        </Border.Background>
-                                    </Border>
-
                                     <!--  页面内容区域  -->
-                                    <Border Grid.Row="2" Padding="6">
+                                    <Border Grid.Row="1">
                                         <ContentPresenter Content="{TemplateBinding Content}" />
                                     </Border>
 
@@ -121,6 +109,6 @@
     </WindowChrome.WindowChrome>
 
     <Grid>
-        <Button Content="test" />
+        <Frame x:Name="MainFrame" Content="{Binding CurrentPage, Converter={converters:ApplicationPageValueConverter}}" />
     </Grid>
 </Window>
