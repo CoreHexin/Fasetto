@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Fasetto.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,15 @@ public partial class MainWindowViewModel : ObservableObject
     private int _windowCornerRadius = 10;
 
     /// <summary>
+    /// 调整窗口大小的边距
+    /// </summary>
+    [ObservableProperty]
+    private int _resizeBorder = 16;
+
+    [ObservableProperty]
+    public ApplicationPage _currentPage = ApplicationPage.Login;
+
+    /// <summary>
     /// 窗口状态
     /// </summary>
     private WindowState _currentWindowState;
@@ -39,11 +49,13 @@ public partial class MainWindowViewModel : ObservableObject
                 {
                     OuterMarginSize = 0;
                     WindowCornerRadius = 0;
+                    ResizeBorder = 0;
                 }
                 else
                 {
                     OuterMarginSize = 10;
                     WindowCornerRadius = 10;
+                    ResizeBorder = 16;
                 }
             }
         }

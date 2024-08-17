@@ -105,7 +105,7 @@
             CaptionHeight="42"
             CornerRadius="0"
             GlassFrameThickness="0"
-            ResizeBorderThickness="16" />
+            ResizeBorderThickness="{Binding ResizeBorder}" />
     </WindowChrome.WindowChrome>
 
     <Grid>
