@@ -54,7 +54,7 @@
                                             <ColumnDefinition Width="auto" />
                                         </Grid.ColumnDefinitions>
 
-                                        <Button Style="{StaticResource SystemIconButtonStyle}">
+                                        <Button Style="{StaticResource SystemIconButtonStyle}" Click="IconButton_click">
                                             <Image Source="Images/Logo/logo-small.png" />
                                         </Button>
 
