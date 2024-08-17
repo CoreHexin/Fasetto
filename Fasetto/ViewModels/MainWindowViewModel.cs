@@ -11,15 +11,6 @@ namespace Fasetto.ViewModels;
 
 public partial class MainWindowViewModel : ObservableObject
 {
-    [ObservableProperty]
-    private string _title = string.Empty;
-
-    /// <summary>
-    /// 调整窗口大小的边框宽度, 宽度包含了窗口外边距的值
-    /// </summary>
-    [ObservableProperty]
-    private double _resizeBorder = 16;
-
     /// <summary>
     /// 窗口外边距, 用来实现阴影效果, 当窗口最大化时，该值为0
     /// </summary>
@@ -45,9 +36,15 @@ public partial class MainWindowViewModel : ObservableObject
             if (SetProperty(ref _currentWindowState, value))
             {
                 if (value == WindowState.Maximized)
+                {
                     OuterMarginSize = 0;
+                    WindowCornerRadius = 0;
+                }
                 else
+                {
                     OuterMarginSize = 10;
+                    WindowCornerRadius = 10;
+                }
             }
         }
     }

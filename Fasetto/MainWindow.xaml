@@ -9,8 +9,6 @@
     Title="Fasetto"
     Width="800"
     Height="450"
-    MinWidth="400"
-    MinHeight="400"
     d:DataContext="{d:DesignInstance vm:MainWindowViewModel}"
     AllowsTransparency="True"
     Icon="Images/Logo/logo-small.png"
@@ -41,7 +39,7 @@
                                         <RowDefinition Height="42" />
                                         <!--  标题栏下方的阴影效果  -->
                                         <RowDefinition Height="auto" />
-                                        <!--  窗口内容区域  -->
+                                        <!--  页面内容区域  -->
                                         <RowDefinition Height="*" />
                                     </Grid.RowDefinitions>
 
@@ -71,10 +69,7 @@
                                             <Button Command="{Binding MaximizeCommand}" Style="{StaticResource WindowControlButtonStyle}">
                                                 <Image Source="Images/maximize.png" />
                                             </Button>
-                                            <Button
-                                                x:Name="closeButton"
-                                                Click="closeButton_Click"
-                                                Style="{StaticResource WindowCloseButtonStyle}">
+                                            <Button Click="CloseButton_Click" Style="{StaticResource WindowCloseButtonStyle}">
                                                 <Image Source="Images/close.png" />
                                             </Button>
                                         </StackPanel>
@@ -103,6 +98,10 @@
                                         </Border.Background>
                                     </Border>
 
+                                    <!--  页面内容区域  -->
+                                    <Border Grid.Row="2" Padding="6">
+                                        <ContentPresenter Content="{TemplateBinding Content}" />
+                                    </Border>
 
                                 </Grid>
                             </Grid>
@@ -118,7 +117,7 @@
             CaptionHeight="42"
             CornerRadius="0"
             GlassFrameThickness="0"
-            ResizeBorderThickness="{Binding ResizeBorder}" />
+            ResizeBorderThickness="16" />
     </WindowChrome.WindowChrome>
 
     <Grid>

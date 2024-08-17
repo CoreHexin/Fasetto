@@ -1,14 +1,6 @@
-﻿using Fasetto.ViewModels;
-using System.Text;
+﻿using Fasetto.Helpers;
+using Fasetto.ViewModels;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Fasetto
 {
@@ -21,9 +13,10 @@ namespace Fasetto
         {
             InitializeComponent();
             DataContext = new MainWindowViewModel();
+            var resizer = new WindowResizer(this);
         }
 
-        private void closeButton_Click(object sender, RoutedEventArgs e)
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
