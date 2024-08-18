@@ -1,0 +1,52 @@
+﻿<Page
+    x:Class="Fasetto.Views.LoginPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Fasetto.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="LoginPage"
+    d:DesignHeight="450"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+
+    <Grid>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <StackPanel
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                TextBlock.TextAlignment="Center">
+                <Border
+                    Width="300"
+                    Margin="50,50,50,0"
+                    Background="{StaticResource ForegroundLightColorBrush}"
+                    CornerRadius="10">
+                    <StackPanel Margin="20,30">
+                        <TextBlock
+                            FontFamily="{StaticResource LatoRegular}"
+                            FontSize="{StaticResource FontSizeLarge}"
+                            Foreground="{StaticResource WordBlueColorBrush}"
+                            Text="账号注册" />
+                        <TextBlock
+                            Margin="0,5"
+                            FontSize="{StaticResource FontSizeRegular}"
+                            Foreground="{StaticResource ForegroundDarkColorBrush}"
+                            Text="It's about to get fun" />
+
+                        <!--  Email  -->
+                        <TextBox Tag="输入邮箱" />
+
+                        <!--  Password  -->
+                        <TextBox Tag="输入密码" />
+
+                        <Button HorizontalAlignment="Center" Content="注册" />
+                    </StackPanel>
+                </Border>
+                <Button
+                    HorizontalAlignment="Center"
+                    Content="已有账号?"
+                    Style="{StaticResource TextButtonStyle}" />
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

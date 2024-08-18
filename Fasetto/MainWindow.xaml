@@ -9,7 +9,7 @@
     xmlns:vm="clr-namespace:Fasetto.ViewModels"
     Title="Fasetto"
     Width="800"
-    Height="450"
+    Height="600"
     d:DataContext="{d:DesignInstance vm:MainWindowViewModel}"
     AllowsTransparency="True"
     Icon="Images/Logo/logo-small.png"
@@ -69,8 +69,19 @@
                                             <Image Source="Images/Logo/logo-small.png" />
                                         </Button>
 
-                                        <Viewbox Grid.Column="1">
-                                            <TextBlock Style="{StaticResource HeaderTextStyle}" Text="Fasetto" />
+                                        <Viewbox
+                                            Grid.Column="0"
+                                            Grid.ColumnSpan="3"
+                                            Margin="5">
+                                            <TextBlock
+                                                HorizontalAlignment="Center"
+                                                FontFamily="{StaticResource LatoBold}"
+                                                FontSize="{StaticResource FontSizeRegular}">
+                                                <Run Foreground="{StaticResource WordOrangeColorBrush}" Text="W" />
+                                                <Run Foreground="{StaticResource WordBlueColorBrush}" Text="O" />
+                                                <Run Foreground="{StaticResource WordRedColorBrush}" Text="R" />
+                                                <Run Foreground="{StaticResource WordGreenColorBrush}" Text="D" />
+                                            </TextBlock>
                                         </Viewbox>
 
                                         <StackPanel Grid.Column="2" Orientation="Horizontal">
@@ -87,8 +98,17 @@
                                     </Grid>
 
                                     <!--  页面内容区域  -->
-                                    <Border Grid.Row="1">
-                                        <ContentPresenter Content="{TemplateBinding Content}" />
+                                    <Border Grid.Row="1" Background="{StaticResource WordBlueColorBrush}">
+                                        <Border>
+                                            <Border.Background>
+                                                <ImageBrush
+                                                    ImageSource="Images/Background/emoji-background.png"
+                                                    TileMode="Tile"
+                                                    Viewport="0 0 500 500"
+                                                    ViewportUnits="Absolute" />
+                                            </Border.Background>
+                                            <ContentPresenter Content="{TemplateBinding Content}" />
+                                        </Border>
                                     </Border>
 
                                 </Grid>
