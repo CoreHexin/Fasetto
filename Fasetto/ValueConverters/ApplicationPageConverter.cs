@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace Fasetto.ValueConverters;
 
-public class ApplicationPageValueConverter : BaseValueConverter<ApplicationPageValueConverter>
+public class ApplicationPageConverter : BaseValueConverter<ApplicationPageConverter>
 {
     public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
