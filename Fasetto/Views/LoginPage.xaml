@@ -30,7 +30,7 @@
                             FontFamily="{StaticResource LatoRegular}"
                             FontSize="{StaticResource FontSizeLarge}"
                             Foreground="{StaticResource WordBlueColorBrush}"
-                            Text="账号注册" />
+                            Text="登录" />
                         <TextBlock
                             Margin="0,5"
                             FontSize="{StaticResource FontSizeRegular}"
@@ -42,16 +42,16 @@
 
                         <!--  Password  -->
                         <PasswordBox
-                            attached:PasswordBoxProperties.HasPassword="{Binding HasPassword}"
+                            attached:PasswordBoxAttachedProperties.HasPassword="{Binding HasPassword}"
                             PasswordChanged="PasswordBox_PasswordChanged"
                             Tag="输入密码" />
 
-                        <Button HorizontalAlignment="Center" Content="注册" />
+                        <Button HorizontalAlignment="Center" Content="登录" />
                     </StackPanel>
                 </Border>
                 <Button
                     HorizontalAlignment="Center"
-                    Content="已有账号?"
+                    Content="没有账号?"
                     Style="{StaticResource TextButtonStyle}" />
             </StackPanel>
         </ScrollViewer>

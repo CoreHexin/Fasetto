@@ -2,10 +2,10 @@
 
 namespace Fasetto.AttachedProperties;
 
-public class PasswordBoxProperties
+public class PasswordBoxAttachedProperties
 {
     public static readonly DependencyProperty HasPasswordProperty =
-        DependencyProperty.RegisterAttached("HasPassword", typeof(bool), typeof(PasswordBoxProperties), new PropertyMetadata(false));
+        DependencyProperty.RegisterAttached("HasPassword", typeof(bool), typeof(PasswordBoxAttachedProperties), new PropertyMetadata(false));
 
     public static bool GetHasPassword(DependencyObject obj)
     {
