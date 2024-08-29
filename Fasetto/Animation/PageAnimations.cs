@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 using System.Windows.Media.Animation;
 
 namespace Fasetto.Animation;
@@ -17,13 +11,12 @@ public static class PageAnimations
     /// <param name="page"></param>
     /// <param name="seconds"></param>
     /// <returns></returns>
-    public static async Task SlideAndFadeInFromRight(this Page page, float seconds)
+    public static void SlideAndFadeInFromRight(this Page page, float seconds)
     {
         var storyboard = new Storyboard();
         storyboard.AddSlideFromRight(seconds, page.WindowWidth);
         storyboard.AddFadeIn(seconds);
         storyboard.Begin(page);
-        await Task.CompletedTask;
     }
 
     /// <summary>
@@ -32,13 +25,12 @@ public static class PageAnimations
     /// <param name="page"></param>
     /// <param name="seconds"></param>
     /// <returns></returns>
-    public static async Task SlideAndFadeOutToRight(this Page page, float seconds)
+    public static void SlideAndFadeOutToRight(this Page page, float seconds)
     {
         var storyboard = new Storyboard();
         storyboard.AddSlideToLeft(seconds, page.WindowWidth);
         storyboard.AddFadeOut(seconds);
         storyboard.Begin(page);
-        await Task.CompletedTask;
     }
 
 }

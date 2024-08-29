@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Fonts\fontawesome-webfont.ttf" />
     <None Remove="Fonts\Lato-Black.ttf" />
     <None Remove="Fonts\Lato-BlackItalic.ttf" />
     <None Remove="Fonts\Lato-Bold.ttf" />
@@ -38,6 +39,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Fonts\fontawesome-webfont.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\Background\emoji-background.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>

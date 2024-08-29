@@ -1,4 +1,8 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:attached="clr-namespace:Fasetto.AttachedProperties"
+    xmlns:converters="clr-namespace:Fasetto.ValueConverters">
 
     <Style x:Key="HoverlessButtonStyle" TargetType="Button">
         <Setter Property="Background" Value="Transparent" />
@@ -69,15 +73,32 @@
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="10"
                         SnapsToDevicePixels="true">
-                        <TextBlock
-                            x:Name="contentPresenter"
-                            Margin="{TemplateBinding Padding}"
-                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                            Focusable="False"
-                            FontFamily="{TemplateBinding FontFamily}"
-                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                            Text="{TemplateBinding Content}" />
+                        <Grid>
+                            <TextBlock
+                                x:Name="contentPresenter"
+                                Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Focusable="False"
+                                FontFamily="{TemplateBinding FontFamily}"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                Text="{TemplateBinding Content}"
+                                Visibility="{TemplateBinding attached:ButtonAttachedProperties.IsBusy,
+                                                             Converter={converters:BoolToVisibilityConverter}}" />
+
+                            <!--  loading 动画  -->
+                            <TextBlock
+                                Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Focusable="False"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                Style="{StaticResource SpinningTextStyle}"
+                                Visibility="{TemplateBinding attached:ButtonAttachedProperties.IsBusy,
+                                                             Converter={converters:BoolToVisibilityConverter},
+                                                             ConverterParameter=True}" />
+
+                        </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
                         <EventTrigger RoutedEvent="MouseEnter">
@@ -107,6 +128,7 @@
                         <Trigger Property="IsEnabled" Value="false">
                             <Setter TargetName="border" Property="Background" Value="{StaticResource ForegroundDarkColorBrush}" />
                         </Trigger>
+
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
@@ -136,7 +158,6 @@
                         CornerRadius="10"
                         SnapsToDevicePixels="true">
                         <TextBlock
-                            x:Name="contentPresenter"
                             Margin="{TemplateBinding Padding}"
                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                             VerticalAlignment="{TemplateBinding VerticalContentAlignment}"

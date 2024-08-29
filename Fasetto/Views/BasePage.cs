@@ -1,9 +1,4 @@
 ﻿using Fasetto.Animation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -25,12 +20,12 @@ public class BasePage : Page
         Loaded += BasePage_Loaded;
     }
 
-    private async void BasePage_Loaded(object sender, RoutedEventArgs e)
+    private void BasePage_Loaded(object sender, RoutedEventArgs e)
     {
-        await AnimationIn();
+        AnimationIn();
     }
 
-    private async Task AnimationIn()
+    private void AnimationIn()
     {
         if (PageLoadAnimation == PageAnimation.None)
             return;
@@ -38,12 +33,12 @@ public class BasePage : Page
         switch (PageLoadAnimation)
         {
             case PageAnimation.SlideAndFadeInFromRight:
-                await this.SlideAndFadeInFromRight(SlideSeconds);
+                this.SlideAndFadeInFromRight(SlideSeconds);
                 break;
         }
     }
 
-    private async Task AnimationOut()
+    private void AnimationOut()
     {
         if (PageUnloadAnimation == PageAnimation.None)
             return;
@@ -51,7 +46,7 @@ public class BasePage : Page
         switch (PageUnloadAnimation)
         {
             case PageAnimation.SlideAndFadeOutToLeft:
-                await this.SlideAndFadeOutToRight(SlideSeconds);
+                this.SlideAndFadeOutToRight(SlideSeconds);
                 break;
         }
     }

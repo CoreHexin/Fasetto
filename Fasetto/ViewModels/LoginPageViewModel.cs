@@ -1,15 +1,40 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using CommunityToolkit.Mvvm.Input;
+using Fasetto.Helpers;
 using System.Security;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Fasetto.ViewModels;
 
 public partial class LoginPageViewModel : ObservableObject
 {
+    private string _email = string.Empty;
+
+    public string Email
+    {
+        get { return _email; }
+        set
+        {
+            if (SetProperty(ref _email, value))
+            {
+                LoginCommand.NotifyCanExecuteChanged();
+            }
+        }
+    }
+
+    private bool _hasPassword = false;
+
+    public bool HasPassword
+    {
+        get { return _hasPassword; }
+        set 
+        { 
+            if (SetProperty(ref _hasPassword, value))
+            {
+                LoginCommand.NotifyCanExecuteChanged();
+            }
+        }
+    }
+
     private SecureString? _securePassword;
 
     public SecureString? SecurePassword
@@ -29,6 +54,24 @@ public partial class LoginPageViewModel : ObservableObject
         }
     }
 
-    [ObservableProperty]
-    private bool _hasPassword = false;
+    public IAsyncRelayCommand LoginCommand { get; }
+
+    public LoginPageViewModel()
+    {
+        LoginCommand = new AsyncRelayCommand(LoginAsync, CanLogin);
+    }
+
+    private async Task<bool> LoginAsync()
+    {
+        string password = SecurePassword.GetPlainText();
+        await Task.Delay(3000);
+        return true;
+    }
+
+    private bool CanLogin()
+    {
+        if (string.IsNullOrEmpty(Email) || HasPassword == false)
+            return false;
+        return true;
+    }
 }
