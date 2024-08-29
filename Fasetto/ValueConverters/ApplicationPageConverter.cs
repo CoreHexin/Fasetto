@@ -12,7 +12,8 @@ public class ApplicationPageConverter : BaseValueConverter<ApplicationPageConver
         {
             case ApplicationPage.Login:
                 return new LoginPage();
-
+            case ApplicationPage.Chat:
+                return new ChatPage();
             default:
                 return null;
         }

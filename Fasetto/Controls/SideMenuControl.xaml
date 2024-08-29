@@ -1,0 +1,39 @@
+﻿<UserControl
+    x:Class="Fasetto.Controls.SideMenuControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Fasetto.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+    <Border Background="{StaticResource ForegroundLightColorBrush}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid Height="50" Background="{StaticResource WordBlueColorBrush}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="{StaticResource FontAwesomeChatIcon}" Style="{StaticResource IconButtonStyle}" />
+                    <Button Content="{StaticResource FontAwesomeUserIcon}" Style="{StaticResource IconButtonStyle}" />
+                    <Button Content="{StaticResource FontAwesomePictureIcon}" Style="{StaticResource IconButtonStyle}" />
+                </StackPanel>
+
+                <Button
+                    Grid.Column="2"
+                    Content="{StaticResource FontAwesomeCogIcon}"
+                    Foreground="{StaticResource WordDarkBlueColorBrush}"
+                    Style="{StaticResource IconButtonStyle}" />
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

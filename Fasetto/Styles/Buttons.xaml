@@ -179,4 +179,77 @@
         </Setter>
     </Style>
 
+    <!--  Icon按钮样式  -->
+    <Style
+        x:Key="IconButtonStyle"
+        BasedOn="{StaticResource BaseTextStyle}"
+        TargetType="Button">
+        <Setter Property="Background" Value="{StaticResource WordBlueColorBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource ForegroundLightColorBrush}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="FontSize" Value="{StaticResource FontSizeRegular}" />
+        <Setter Property="FontFamily" Value="{StaticResource FontAwesome}" />
+        <Setter Property="Padding" Value="15" />
+
+        <!--  设置宽度等于高度  -->
+        <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ButtonBase}">
+                    <Border
+                        x:Name="border"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        SnapsToDevicePixels="true">
+                        <Grid>
+                            <Viewbox>
+                                <TextBlock
+                                    x:Name="contentPresenter"
+                                    Margin="{TemplateBinding Padding}"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    Focusable="False"
+                                    FontFamily="{TemplateBinding FontFamily}"
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                    Text="{TemplateBinding Content}" />
+                            </Viewbox>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation
+                                        Storyboard.TargetName="border"
+                                        Storyboard.TargetProperty="Background.Color"
+                                        To="{StaticResource WordLightBlueColor}"
+                                        Duration="0:0:0.3" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation
+                                        Storyboard.TargetName="border"
+                                        Storyboard.TargetProperty="Background.Color"
+                                        To="{StaticResource WordBlueColor}"
+                                        Duration="0:0:0.3" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource ForegroundDarkColorBrush}" />
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>

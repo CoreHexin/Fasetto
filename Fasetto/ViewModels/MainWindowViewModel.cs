@@ -31,7 +31,7 @@ public partial class MainWindowViewModel : ObservableObject
     private int _resizeBorder = 16;
 
     [ObservableProperty]
-    public ApplicationPage _currentPage = ApplicationPage.Login;
+    public ApplicationPage _currentPage = ApplicationPage.Chat;
 
     /// <summary>
     /// 窗口状态
