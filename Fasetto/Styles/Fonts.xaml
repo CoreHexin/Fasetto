@@ -22,8 +22,8 @@
         <Setter Property="FontFamily" Value="{StaticResource LatoThin}" />
     </Style>
 
-    <system:Double x:Key="FontSizeRegular">20</system:Double>
     <system:Double x:Key="FontSizeSmall">14</system:Double>
+    <system:Double x:Key="FontSizeRegular">20</system:Double>
     <system:Double x:Key="FontSizeLarge">30</system:Double>
 
     <system:String x:Key="FontAwesomeChatIcon">&#xf086;</system:String>

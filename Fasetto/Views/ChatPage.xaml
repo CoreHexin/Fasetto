@@ -17,6 +17,8 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <controls:SideMenuControl />
+        <controls:SideMenuControl>
+            <controls:ChatListControl />
+        </controls:SideMenuControl>
     </Grid>
 </Page>

@@ -1,0 +1,104 @@
+﻿<UserControl
+    x:Class="Fasetto.Controls.ChatListItemControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:Fasetto.ValueConverters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Fasetto.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:Fasetto.ViewModels"
+    Height="60"
+    d:DataContext="{x:Static vm:ChatListItemDesignViewModel.Instance}"
+    d:DesignHeight="60"
+    d:DesignWidth="300"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <Style x:Key="BackgroundBorderStyle" TargetType="Border">
+            <Setter Property="Background" Value="{StaticResource ForegroundLightColorBrush}" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsSelected}" Value="true">
+                    <Setter Property="Background" Value="{StaticResource WordVeryLightBlueColorBrush}" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="GridMouseEnterStyle" TargetType="Grid">
+            <Setter Property="Background" Value="Transparent" />
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="MouseEnter">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ColorAnimation
+                                    Storyboard.TargetProperty="Background.Color"
+                                    To="{StaticResource WordVeryLightBlueColor}"
+                                    Duration="0:0:0.3" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+
+                <EventTrigger RoutedEvent="MouseLeave">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ColorAnimation
+                                    Storyboard.TargetProperty="Background.Color"
+                                    To="Transparent"
+                                    Duration="0:0:0.3" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+
+    <Border Style="{StaticResource BackgroundBorderStyle}">
+        <Grid Style="{StaticResource GridMouseEnterStyle}">
+            <Grid.ColumnDefinitions>
+                <!--  新消息红色指示条  -->
+                <ColumnDefinition Width="Auto" />
+                <!--  用户头像  -->
+                <ColumnDefinition Width="Auto" />
+                <!--  消息  -->
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Border
+                Width="4"
+                Background="Red"
+                Visibility="{Binding HasNewMessage, Converter={converters:BoolToVisibilityConverter}, ConverterParameter=True}" />
+
+            <Border Grid.Column="1" Padding="8">
+                <Border
+                    Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}"
+                    Background="{Binding AvatarColor}"
+                    CornerRadius="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}">
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="{StaticResource FontSizeRegular}"
+                        Foreground="{StaticResource ForegroundLightColorBrush}"
+                        Text="{Binding ShortName}" />
+                </Border>
+            </Border>
+
+            <StackPanel
+                Grid.Column="2"
+                Margin="0,0,10,0"
+                VerticalAlignment="Center">
+                <TextBlock
+                    Margin="0,0,0,5"
+                    FontFamily="{StaticResource LatoRegular}"
+                    Foreground="{StaticResource WordBlueColorBrush}"
+                    Text="{Binding Name}" />
+                <TextBlock
+                    FontFamily="{StaticResource LatoRegular}"
+                    Foreground="{StaticResource ForegroundDarkColorBrush}"
+                    Text="{Binding Message}"
+                    TextTrimming="CharacterEllipsis" />
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>

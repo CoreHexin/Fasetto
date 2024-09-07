@@ -8,32 +8,40 @@
     d:DesignHeight="450"
     d:DesignWidth="400"
     mc:Ignorable="d">
-    <Border Background="{StaticResource ForegroundLightColorBrush}">
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
+    <UserControl.Template>
+        <ControlTemplate TargetType="UserControl">
+            <Border Background="{StaticResource ForegroundLightColorBrush}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
 
-            <Grid Height="50" Background="{StaticResource WordBlueColorBrush}">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
+                    <Grid Height="50" Background="{StaticResource WordBlueColorBrush}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
 
-                <StackPanel Orientation="Horizontal">
-                    <Button Content="{StaticResource FontAwesomeChatIcon}" Style="{StaticResource IconButtonStyle}" />
-                    <Button Content="{StaticResource FontAwesomeUserIcon}" Style="{StaticResource IconButtonStyle}" />
-                    <Button Content="{StaticResource FontAwesomePictureIcon}" Style="{StaticResource IconButtonStyle}" />
-                </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Content="{StaticResource FontAwesomeChatIcon}" Style="{StaticResource IconButtonStyle}" />
+                            <Button Content="{StaticResource FontAwesomeUserIcon}" Style="{StaticResource IconButtonStyle}" />
+                            <Button Content="{StaticResource FontAwesomePictureIcon}" Style="{StaticResource IconButtonStyle}" />
+                        </StackPanel>
 
-                <Button
+                        <Button
                     Grid.Column="2"
                     Content="{StaticResource FontAwesomeCogIcon}"
                     Foreground="{StaticResource WordDarkBlueColorBrush}"
                     Style="{StaticResource IconButtonStyle}" />
-            </Grid>
-        </Grid>
-    </Border>
+                    </Grid>
+
+                    <Border Grid.Row="1">
+                        <ContentPresenter />
+                    </Border>
+                </Grid>
+            </Border>
+        </ControlTemplate>
+    </UserControl.Template>
 </UserControl>
