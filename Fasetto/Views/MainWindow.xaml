@@ -1,10 +1,10 @@
 ﻿<Window
-    x:Class="Fasetto.MainWindow"
+    x:Class="Fasetto.Views.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:converters="clr-namespace:Fasetto.ValueConverters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:Fasetto"
+    xmlns:local="clr-namespace:Fasetto.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:Fasetto.ViewModels"
     Title="Fasetto"
@@ -12,7 +12,7 @@
     Height="600"
     d:DataContext="{d:DesignInstance vm:MainWindowViewModel}"
     AllowsTransparency="True"
-    Icon="Images/Logo/logo-small.png"
+    Icon="../Images/Logo/logo-small.png"
     WindowStartupLocation="CenterScreen"
     WindowState="{Binding CurrentWindowState, Mode=TwoWay}"
     WindowStyle="None"
@@ -66,7 +66,7 @@
                                         </Grid.ColumnDefinitions>
 
                                         <Button Click="IconButton_click" Style="{StaticResource SystemIconButtonStyle}">
-                                            <Image Source="Images/Logo/logo-small.png" />
+                                            <Image Source="../Images/Logo/logo-small.png" />
                                         </Button>
 
                                         <Viewbox
@@ -86,13 +86,13 @@
 
                                         <StackPanel Grid.Column="2" Orientation="Horizontal">
                                             <Button Command="{Binding MinimizeCommand}" Style="{StaticResource WindowControlButtonStyle}">
-                                                <Image Source="Images/minimize.png" />
+                                                <Image Source="../Images/minimize.png" />
                                             </Button>
                                             <Button Command="{Binding MaximizeCommand}" Style="{StaticResource WindowControlButtonStyle}">
-                                                <Image Source="Images/maximize.png" />
+                                                <Image Source="../Images/maximize.png" />
                                             </Button>
                                             <Button Click="CloseButton_Click" Style="{StaticResource WindowControlButtonStyle}">
-                                                <Image Source="Images/close.png" />
+                                                <Image Source="../Images/close.png" />
                                             </Button>
                                         </StackPanel>
                                     </Grid>
@@ -102,7 +102,7 @@
                                         <Border>
                                             <Border.Background>
                                                 <ImageBrush
-                                                    ImageSource="Images/Background/emoji-background.png"
+                                                    ImageSource="../Images/Background/emoji-background.png"
                                                     TileMode="Tile"
                                                     Viewport="0 0 500 500"
                                                     ViewportUnits="Absolute" />
