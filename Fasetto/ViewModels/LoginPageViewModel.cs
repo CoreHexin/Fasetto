@@ -10,33 +10,13 @@ namespace Fasetto.ViewModels;
 
 public partial class LoginPageViewModel : ObservableObject
 {
+    [ObservableProperty]
+    [NotifyCanExecuteChangedFor(nameof(LoginCommand))]
     private string _email = string.Empty;
 
-    public string Email
-    {
-        get { return _email; }
-        set
-        {
-            if (SetProperty(ref _email, value))
-            {
-                LoginCommand.NotifyCanExecuteChanged();
-            }
-        }
-    }
-
+    [ObservableProperty]
+    [NotifyCanExecuteChangedFor(nameof(LoginCommand))]
     private bool _hasPassword = false;
-
-    public bool HasPassword
-    {
-        get { return _hasPassword; }
-        set 
-        { 
-            if (SetProperty(ref _hasPassword, value))
-            {
-                LoginCommand.NotifyCanExecuteChanged();
-            }
-        }
-    }
 
     private SecureString? _securePassword;
 
@@ -57,13 +37,7 @@ public partial class LoginPageViewModel : ObservableObject
         }
     }
 
-    public IAsyncRelayCommand LoginCommand { get; }
-
-    public LoginPageViewModel()
-    {
-        LoginCommand = new AsyncRelayCommand(LoginAsync, CanLogin);
-    }
-
+    [RelayCommand(CanExecute = nameof(CanLogin))]
     private async Task<bool> LoginAsync()
     {
         string password = SecurePassword.GetPlainText();
