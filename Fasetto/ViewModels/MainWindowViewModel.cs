@@ -1,11 +1,13 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
+using CommunityToolkit.Mvvm.Messaging.Messages;
 using Fasetto.Models;
 using System.Windows;
 
 namespace Fasetto.ViewModels;
 
-public partial class MainWindowViewModel : ObservableObject
+public partial class MainWindowViewModel : ObservableRecipient, IRecipient<ValueChangedMessage<ApplicationPage>>
 {
     /// <summary>
     /// 窗口外边距, 用来实现阴影效果, 当窗口最大化时，该值为0
@@ -26,7 +28,7 @@ public partial class MainWindowViewModel : ObservableObject
     private int _resizeBorder = 16;
 
     [ObservableProperty]
-    public ApplicationPage _currentPage = ApplicationPage.Chat;
+    public ApplicationPage _currentPage = ApplicationPage.Register;
 
     /// <summary>
     /// 窗口状态
@@ -59,6 +61,7 @@ public partial class MainWindowViewModel : ObservableObject
     public MainWindowViewModel()
     {
         CurrentWindowState = WindowState.Normal;
+        IsActive = true;
     }
 
     [RelayCommand]
@@ -71,5 +74,10 @@ public partial class MainWindowViewModel : ObservableObject
     private void Maximize()
     {
         CurrentWindowState ^= WindowState.Maximized;
+    }
+
+    public void Receive(ValueChangedMessage<ApplicationPage> message)
+    {
+        CurrentPage = message.Value;
     }
 }

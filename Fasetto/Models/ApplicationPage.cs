@@ -2,6 +2,7 @@
 
 public enum ApplicationPage
 {
+    Register,
     Login,
     Chat,
 }

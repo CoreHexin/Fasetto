@@ -8,7 +8,7 @@ using System.Security;
 
 namespace Fasetto.ViewModels;
 
-public partial class LoginPageViewModel : ObservableObject
+public partial class RegisterPageViewModel : ObservableObject
 {
     private string _email = string.Empty;
 
@@ -19,7 +19,7 @@ public partial class LoginPageViewModel : ObservableObject
         {
             if (SetProperty(ref _email, value))
             {
-                LoginCommand.NotifyCanExecuteChanged();
+                RegisterCommand.NotifyCanExecuteChanged();
             }
         }
     }
@@ -33,7 +33,7 @@ public partial class LoginPageViewModel : ObservableObject
         { 
             if (SetProperty(ref _hasPassword, value))
             {
-                LoginCommand.NotifyCanExecuteChanged();
+                RegisterCommand.NotifyCanExecuteChanged();
             }
         }
     }
@@ -57,32 +57,33 @@ public partial class LoginPageViewModel : ObservableObject
         }
     }
 
-    public IAsyncRelayCommand LoginCommand { get; }
+    public IAsyncRelayCommand RegisterCommand { get; }
 
-    public LoginPageViewModel()
+    public RegisterPageViewModel()
     {
-        LoginCommand = new AsyncRelayCommand(LoginAsync, CanLogin);
+        RegisterCommand = new AsyncRelayCommand(RegisterAsync, CanRegister);
     }
 
-    private async Task<bool> LoginAsync()
+    private async Task<bool> RegisterAsync()
     {
         string password = SecurePassword.GetPlainText();
         await Task.Delay(3000);
         return true;
     }
 
-    private bool CanLogin()
+    private bool CanRegister()
     {
         if (string.IsNullOrEmpty(Email) || HasPassword == false)
             return false;
         return true;
     }
 
-    // 切换至注册页面
+    // 切换至登录页面
     [RelayCommand]
-    private void SwitchToRegister()
+    private void SwitchToLogin()
     {
         // 向 MainWindowViewModel 发送消息
-        WeakReferenceMessenger.Default.Send(new ValueChangedMessage<ApplicationPage>(ApplicationPage.Register));
+        WeakReferenceMessenger.Default.Send(new ValueChangedMessage<ApplicationPage>(ApplicationPage.Login));
     }
+
 }
