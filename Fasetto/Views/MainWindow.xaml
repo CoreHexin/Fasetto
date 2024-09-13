@@ -100,7 +100,7 @@
                 </Grid>
 
                 <!--  页面内容区域  -->
-                <Border Grid.Row="1" Background="{StaticResource WordBlueColorBrush}">
+                <Border Grid.Row="1" Background="{StaticResource WordBlueColorBrush}" ClipToBounds="True">
                     <Border>
                         <Border.Background>
                             <ImageBrush

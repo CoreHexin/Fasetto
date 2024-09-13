@@ -46,7 +46,7 @@ public class BasePage : Page
         switch (PageUnloadAnimation)
         {
             case PageAnimation.SlideAndFadeOutToLeft:
-                this.SlideAndFadeOutToRight(SlideSeconds);
+                this.SlideAndFadeOutToLeft(SlideSeconds);
                 break;
         }
     }

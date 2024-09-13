@@ -25,7 +25,7 @@ public static class PageAnimations
     /// <param name="page"></param>
     /// <param name="seconds"></param>
     /// <returns></returns>
-    public static void SlideAndFadeOutToRight(this Page page, float seconds)
+    public static void SlideAndFadeOutToLeft(this Page page, float seconds)
     {
         var storyboard = new Storyboard();
         storyboard.AddSlideToLeft(seconds, page.WindowWidth);

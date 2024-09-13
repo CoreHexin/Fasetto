@@ -31,10 +31,10 @@
                         </StackPanel>
 
                         <Button
-                    Grid.Column="2"
-                    Content="{StaticResource FontAwesomeCogIcon}"
-                    Foreground="{StaticResource WordDarkBlueColorBrush}"
-                    Style="{StaticResource IconButtonStyle}" />
+                            Grid.Column="2"
+                            Content="{StaticResource FontAwesomeCogIcon}"
+                            Foreground="{StaticResource WordDarkBlueColorBrush}"
+                            Style="{StaticResource IconButtonStyle}" />
                     </Grid>
 
                     <Border Grid.Row="1">

@@ -11,7 +11,7 @@ public partial class ChatListDesignViewModel : ChatListViewModel
             new ChatListItemViewModel
             {
                 Name = "Luke",
-                Message = "This chat app is awesome! I bet it will be fast too",
+                Message = "This chat app is awesome! I bet it will be fast too too toot too",
                 ShortName = "LM",
                 AvatarColor = "#3099c5",
                 HasNewMessage = true,
