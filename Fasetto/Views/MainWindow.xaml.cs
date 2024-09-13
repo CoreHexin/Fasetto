@@ -1,7 +1,9 @@
 ﻿using Fasetto.Helpers;
 using Fasetto.ViewModels;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Navigation;
 
 namespace Fasetto.Views;
 
@@ -38,5 +40,18 @@ public partial class MainWindow : Window
             return postion;
 
         return new Point(postion.X + this.Left, postion.Y + this.Top);
+    }
+
+    /// <summary>
+    /// 不保存导航历史
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void MainFrame_Navigated(object sender, NavigationEventArgs e)
+    {
+        if (sender is Frame frame)
+        {
+            frame.NavigationService.RemoveBackEntry();
+        }
     }
 }

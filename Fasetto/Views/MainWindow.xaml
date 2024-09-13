@@ -100,7 +100,10 @@
                 </Grid>
 
                 <!--  页面内容区域  -->
-                <Border Grid.Row="1" Background="{StaticResource WordBlueColorBrush}" ClipToBounds="True">
+                <Border
+                    Grid.Row="1"
+                    Background="{StaticResource WordBlueColorBrush}"
+                    ClipToBounds="True">
                     <Border>
                         <Border.Background>
                             <ImageBrush
@@ -109,7 +112,11 @@
                                 Viewport="0 0 500 500"
                                 ViewportUnits="Absolute" />
                         </Border.Background>
-                        <Frame x:Name="MainFrame" Content="{Binding CurrentPage, Converter={converters:ApplicationPageConverter}}" />
+                        <Frame
+                            x:Name="MainFrame"
+                            Content="{Binding CurrentPage, Converter={converters:ApplicationPageConverter}}"
+                            Navigated="MainFrame_Navigated"
+                            NavigationUIVisibility="Hidden" />
                     </Border>
                 </Border>
 
