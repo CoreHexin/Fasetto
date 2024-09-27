@@ -10,6 +10,8 @@
     Title="Fasetto"
     Width="900"
     Height="600"
+    MinWidth="200"
+    MinHeight="200"
     d:DataContext="{d:DesignInstance vm:MainWindowViewModel}"
     AllowsTransparency="True"
     Background="Transparent"
