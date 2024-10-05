@@ -41,17 +41,4 @@ public partial class MainWindow : Window
 
         return new Point(postion.X + this.Left, postion.Y + this.Top);
     }
-
-    /// <summary>
-    /// 不保存导航历史
-    /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
-    private void MainFrame_Navigated(object sender, NavigationEventArgs e)
-    {
-        if (sender is Frame frame)
-        {
-            frame.NavigationService.RemoveBackEntry();
-        }
-    }
 }
