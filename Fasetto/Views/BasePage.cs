@@ -13,7 +13,13 @@ public class BasePage : Page
     /// <summary>
     /// 动画的执行时间
     /// </summary>
-    public float SlideSeconds { get; set; } = 0.8f;
+    public float SlideSeconds { get; set; } = 0.5f;
+
+    /// <summary>
+    /// 是否已加载过
+    /// 如果页面因显示或隐藏而从可视树中移除，然后再加入，Loaded 事件也会再次触发。
+    /// </summary>
+    public bool HasLoaded { get; set; }
 
     public BasePage()
     {
@@ -22,7 +28,11 @@ public class BasePage : Page
 
     private void BasePage_Loaded(object sender, RoutedEventArgs e)
     {
-        AnimationIn();
+        if (!HasLoaded)
+        {
+            AnimationIn();
+            HasLoaded = true;
+        }
     }
 
     private void AnimationIn()
@@ -38,7 +48,7 @@ public class BasePage : Page
         }
     }
 
-    private void AnimationOut()
+    public void AnimationOut()
     {
         if (PageUnloadAnimation == PageAnimation.None)
             return;
