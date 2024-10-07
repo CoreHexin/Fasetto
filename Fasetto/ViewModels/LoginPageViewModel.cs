@@ -38,11 +38,11 @@ public partial class LoginPageViewModel : ObservableObject
     }
 
     [RelayCommand(CanExecute = nameof(CanLogin))]
-    private async Task<bool> LoginAsync()
+    private async Task LoginAsync()
     {
         string password = SecurePassword.GetPlainText();
-        await Task.Delay(3000);
-        return true;
+        await Task.Delay(1000);
+        WeakReferenceMessenger.Default.Send(new ValueChangedMessage<ApplicationPage>(ApplicationPage.Chat));
     }
 
     private bool CanLogin()

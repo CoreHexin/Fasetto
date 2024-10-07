@@ -10,11 +10,11 @@ namespace Fasetto.Controls;
 public partial class PageHostControl : UserControl
 {
     public static readonly DependencyProperty CurPageProperty = DependencyProperty.Register(
-        nameof(CurPage), typeof(BasePage), typeof(PageHostControl), new PropertyMetadata(OnCurPageChanged));
+        nameof(CurPage), typeof(Page), typeof(PageHostControl), new PropertyMetadata(OnCurPageChanged));
 
-    public BasePage CurPage
+    public Page CurPage
     {
-        get { return (BasePage)GetValue(CurPageProperty); }
+        get { return (Page)GetValue(CurPageProperty); }
         set { SetValue(CurPageProperty, value); }
     }
 

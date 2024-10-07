@@ -38,11 +38,11 @@ public partial class RegisterPageViewModel : ObservableObject
     }
 
     [RelayCommand(CanExecute = nameof(CanRegister))]
-    private async Task<bool> RegisterAsync()
+    private async Task RegisterAsync()
     {
         string password = SecurePassword.GetPlainText();
-        await Task.Delay(3000);
-        return true;
+        await Task.Delay(1000);
+        WeakReferenceMessenger.Default.Send(new ValueChangedMessage<ApplicationPage>(ApplicationPage.Chat));
     }
 
     private bool CanRegister()

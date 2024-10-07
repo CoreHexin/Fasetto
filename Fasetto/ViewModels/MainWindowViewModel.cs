@@ -28,7 +28,7 @@ public partial class MainWindowViewModel : ObservableRecipient, IRecipient<Value
     private int _resizeBorder = 16;
 
     [ObservableProperty]
-    public ApplicationPage _currentPage = ApplicationPage.Chat;
+    public ApplicationPage _currentPage = ApplicationPage.Login;
 
     /// <summary>
     /// 窗口状态
