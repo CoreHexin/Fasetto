@@ -36,6 +36,13 @@ public partial class PageHostControl : UserControl
         {
             // 触发页面退出动画
             oldPage.AnimationOut();
+
+            // 页面退出动画完成后释放OldPage
+            Task.Run(async () =>
+            {
+                await Task.Delay(1000);
+                Application.Current.Dispatcher.Invoke(() => oldPageFrame.Content = null);
+            });
         }
 
         newPageFrame.Content = e.NewValue;
