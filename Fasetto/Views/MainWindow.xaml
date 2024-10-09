@@ -81,7 +81,7 @@
                         <TextBlock
                             HorizontalAlignment="Center"
                             FontFamily="{StaticResource LatoBold}"
-                            FontSize="{StaticResource FontSizeRegular}">
+                            FontSize="{StaticResource FontSizeL}">
                             <Run Foreground="{StaticResource WordOrangeColorBrush}" Text="W" />
                             <Run Foreground="{StaticResource WordBlueColorBrush}" Text="O" />
                             <Run Foreground="{StaticResource WordRedColorBrush}" Text="R" />

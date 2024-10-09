@@ -10,6 +10,7 @@
 
     <Style x:Key="BaseTextStyle" TargetType="Control">
         <Setter Property="FontFamily" Value="{StaticResource LatoThin}" />
+        <Setter Property="FontSize" Value="{StaticResource FontSizeM}" />
     </Style>
 
     <!--  设置全局字体  -->
@@ -22,9 +23,11 @@
         <Setter Property="FontFamily" Value="{StaticResource LatoThin}" />
     </Style>
 
-    <system:Double x:Key="FontSizeSmall">14</system:Double>
-    <system:Double x:Key="FontSizeRegular">20</system:Double>
-    <system:Double x:Key="FontSizeLarge">30</system:Double>
+    <system:Double x:Key="FontSizeS">12</system:Double>
+    <system:Double x:Key="FontSizeM">14</system:Double>
+    <system:Double x:Key="FontSizeL">20</system:Double>
+    <system:Double x:Key="FontSizeXL">24</system:Double>
+    <system:Double x:Key="FontSizeXXL">30</system:Double>
 
     <system:String x:Key="FontAwesomeChatIcon">&#xf086;</system:String>
     <system:String x:Key="FontAwesomeUserIcon">&#xf007;</system:String>

@@ -59,7 +59,7 @@
         <Setter Property="Background" Value="{StaticResource WordOrangeColorBrush}" />
         <Setter Property="Foreground" Value="{StaticResource ForegroundLightColorBrush}" />
         <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="FontSize" Value="{StaticResource FontSizeRegular}" />
+        <Setter Property="FontSize" Value="{StaticResource FontSizeL}" />
         <Setter Property="Padding" Value="50,10" />
         <Setter Property="Margin" Value="0,10" />
 
@@ -143,7 +143,7 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Foreground" Value="{StaticResource ForegroundLightColorBrush}" />
         <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="FontSize" Value="{StaticResource FontSizeRegular}" />
+        <Setter Property="FontSize" Value="{StaticResource FontSizeL}" />
         <Setter Property="Padding" Value="10" />
         <Setter Property="Margin" Value="0,10" />
 
@@ -155,7 +155,6 @@
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="10"
                         SnapsToDevicePixels="true">
                         <TextBlock
                             Margin="{TemplateBinding Padding}"
@@ -187,7 +186,7 @@
         <Setter Property="Background" Value="{StaticResource WordBlueColorBrush}" />
         <Setter Property="Foreground" Value="{StaticResource ForegroundLightColorBrush}" />
         <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="FontSize" Value="{StaticResource FontSizeRegular}" />
+        <Setter Property="FontSize" Value="{StaticResource FontSizeL}" />
         <Setter Property="FontFamily" Value="{StaticResource FontAwesome}" />
         <Setter Property="Padding" Value="15" />
 

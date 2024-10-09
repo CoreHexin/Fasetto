@@ -27,12 +27,12 @@
                     <StackPanel Margin="20,30">
                         <TextBlock
                             FontFamily="{StaticResource LatoRegular}"
-                            FontSize="{StaticResource FontSizeLarge}"
+                            FontSize="{StaticResource FontSizeXXL}"
                             Foreground="{StaticResource WordBlueColorBrush}"
                             Text="登录" />
                         <TextBlock
                             Margin="0,5"
-                            FontSize="{StaticResource FontSizeRegular}"
+                            FontSize="{StaticResource FontSizeL}"
                             Foreground="{StaticResource ForegroundDarkColorBrush}"
                             Text="It's about to get fun" />
 

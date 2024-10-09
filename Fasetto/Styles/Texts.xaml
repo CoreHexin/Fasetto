@@ -18,7 +18,7 @@
 
     <!--  自定义文本输入框模板  -->
     <Style TargetType="TextBox">
-        <Setter Property="FontSize" Value="{StaticResource FontSizeRegular}" />
+        <Setter Property="FontSize" Value="{StaticResource FontSizeL}" />
         <Setter Property="FontFamily" Value="{StaticResource LatoRegular}" />
         <Setter Property="Padding" Value="10" />
         <Setter Property="Margin" Value="0,5" />
@@ -83,7 +83,7 @@
         <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst" />
         <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
 
-        <Setter Property="FontSize" Value="{StaticResource FontSizeRegular}" />
+        <Setter Property="FontSize" Value="{StaticResource FontSizeL}" />
         <Setter Property="FontFamily" Value="{StaticResource LatoRegular}" />
         <Setter Property="Padding" Value="10" />
         <Setter Property="Margin" Value="0,5" />

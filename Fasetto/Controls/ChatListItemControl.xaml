@@ -7,9 +7,7 @@
     xmlns:local="clr-namespace:Fasetto.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:Fasetto.ViewModels"
-    Height="60"
     d:DataContext="{x:Static vm:ChatListItemDesignViewModel.Instance}"
-    d:DesignHeight="60"
     d:DesignWidth="300"
     mc:Ignorable="d">
     <UserControl.Resources>
@@ -73,12 +71,13 @@
             <Border Grid.Column="1" Padding="8">
                 <Border
                     Width="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}"
+                    Height="40"
                     Background="{Binding AvatarColor}"
                     CornerRadius="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight}">
                     <TextBlock
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        FontSize="{StaticResource FontSizeRegular}"
+                        FontSize="{StaticResource FontSizeL}"
                         Foreground="{StaticResource ForegroundLightColorBrush}"
                         Text="{Binding ShortName}" />
                 </Border>
