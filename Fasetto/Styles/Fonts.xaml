@@ -8,6 +8,17 @@
     <FontFamily x:Key="LatoBold">pack://application,,,/Fonts/#Lato Bold</FontFamily>
     <FontFamily x:Key="FontAwesome">pack://application,,,/Fonts/#FontAwesome</FontFamily>
 
+    <system:Double x:Key="FontSizeS">12</system:Double>
+    <system:Double x:Key="FontSizeM">14</system:Double>
+    <system:Double x:Key="FontSizeL">20</system:Double>
+    <system:Double x:Key="FontSizeXL">24</system:Double>
+    <system:Double x:Key="FontSizeXXL">30</system:Double>
+
+    <system:String x:Key="FontAwesomeChatIcon">&#xf086;</system:String>
+    <system:String x:Key="FontAwesomeUserIcon">&#xf007;</system:String>
+    <system:String x:Key="FontAwesomePictureIcon">&#xf1c5;</system:String>
+    <system:String x:Key="FontAwesomeCogIcon">&#xf013;</system:String>
+
     <Style x:Key="BaseTextStyle" TargetType="Control">
         <Setter Property="FontFamily" Value="{StaticResource LatoThin}" />
         <Setter Property="FontSize" Value="{StaticResource FontSizeM}" />
@@ -23,14 +34,4 @@
         <Setter Property="FontFamily" Value="{StaticResource LatoThin}" />
     </Style>
 
-    <system:Double x:Key="FontSizeS">12</system:Double>
-    <system:Double x:Key="FontSizeM">14</system:Double>
-    <system:Double x:Key="FontSizeL">20</system:Double>
-    <system:Double x:Key="FontSizeXL">24</system:Double>
-    <system:Double x:Key="FontSizeXXL">30</system:Double>
-
-    <system:String x:Key="FontAwesomeChatIcon">&#xf086;</system:String>
-    <system:String x:Key="FontAwesomeUserIcon">&#xf007;</system:String>
-    <system:String x:Key="FontAwesomePictureIcon">&#xf1c5;</system:String>
-    <system:String x:Key="FontAwesomeCogIcon">&#xf013;</system:String>
 </ResourceDictionary>

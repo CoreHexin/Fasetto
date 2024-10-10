@@ -25,11 +25,7 @@
         </controls:SideMenuControl>
 
         <Grid Grid.Column="1">
-            <Button
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Command="{Binding ToggleSideMenuCommand}"
-                Content="切换" />
+            <controls:ChatMessageListControl Margin="10" />
         </Grid>
     </Grid>
 </Page>
