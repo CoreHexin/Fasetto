@@ -9,6 +9,6 @@ public partial class ChatListItemDesignViewModel : ChatListItemViewModel
         Name = "Luke";
         Message = "This chat app is awesome! I bet it will be fast too";
         ShortName = "LM";
-        AvatarColor = "#3099c5";
+        AvatarColor = "#3066c5";
     }
 }

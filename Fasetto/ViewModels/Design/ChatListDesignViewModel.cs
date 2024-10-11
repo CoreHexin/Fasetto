@@ -13,7 +13,7 @@ public partial class ChatListDesignViewModel : ChatListViewModel
                 Name = "Luke",
                 Message = "This chat app is awesome! I bet it will be fast too too toot too",
                 ShortName = "LM",
-                AvatarColor = "#3099c5",
+                AvatarColor = "#3066c5",
                 HasNewMessage = true,
             },
             new ChatListItemViewModel
@@ -36,7 +36,7 @@ public partial class ChatListDesignViewModel : ChatListViewModel
                 Name = "Luke",
                 Message = "This chat app is awesome! I bet it will be fast too",
                 ShortName = "LM",
-                AvatarColor = "#3099c5",
+                AvatarColor = "#3066c5",
             },
             new ChatListItemViewModel
             {
@@ -57,7 +57,7 @@ public partial class ChatListDesignViewModel : ChatListViewModel
                 Name = "Luke",
                 Message = "This chat app is awesome! I bet it will be fast too",
                 ShortName = "LM",
-                AvatarColor = "#3099c5",
+                AvatarColor = "#3066c5",
             },
             new ChatListItemViewModel
             {

@@ -39,5 +39,13 @@
     <Color x:Key="WordGreenColor">#00c541</Color>
     <SolidColorBrush x:Key="WordGreenColorBrush" Color="{StaticResource WordGreenColor}" />
 
+    <Color x:Key="MessageGreenColor">#95ec69</Color>
+    <SolidColorBrush x:Key="MessageGreenColorBrush" Color="{StaticResource MessageGreenColor}" />
+
+    <Color x:Key="MessageDarkGreenColor">#89d961</Color>
+    <SolidColorBrush x:Key="MessageDarkGreenColorBrush" Color="{StaticResource MessageDarkGreenColor}" />
+
+    <Color x:Key="MessageGrayColor">#ebebeb</Color>
+    <SolidColorBrush x:Key="MessageGrayColorBrush" Color="{StaticResource MessageGrayColor}" />
 
 </ResourceDictionary>

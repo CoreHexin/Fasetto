@@ -128,6 +128,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Controls\ChatMessageListItemSentByMeControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\RegisterPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

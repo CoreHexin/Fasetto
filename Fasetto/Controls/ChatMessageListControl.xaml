@@ -5,19 +5,32 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Fasetto.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:selectors="clr-namespace:Fasetto.TemplateSelectors"
     xmlns:vm="clr-namespace:Fasetto.ViewModels"
     d:DesignWidth="300"
-    DataContext="{x:Static vm:ChatListDesignViewModel.Instance}"
+    DataContext="{x:Static vm:ChatMessageListDesignViewModel.Instance}"
     mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <DataTemplate x:Key="ChatMessageListItemDataTemplate">
+            <local:ChatMessageListItemControl Margin="0,10" />
+        </DataTemplate>
+
+        <DataTemplate x:Key="ChatMessageListItemSentByMeDataTemplate">
+            <local:ChatMessageListItemSentByMeControl Margin="0,10" />
+        </DataTemplate>
+
+        <!--  数据模板选择器  -->
+        <selectors:ChatMessageListItemDataTemplateSelector
+            x:Key="ChatMessageListItemDataTemplateSelector"
+            ChatMessageListItemDataTemplate="{StaticResource ChatMessageListItemDataTemplate}"
+            ChatMessageListItemSentByMeDataTemplate="{StaticResource ChatMessageListItemSentByMeDataTemplate}" />
+
+    </UserControl.Resources>
+
     <Grid>
         <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
-            <ItemsControl ItemsSource="{Binding Items}">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <local:ChatMessageListItemControl Margin="0 10" />
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+            <ItemsControl ItemTemplateSelector="{StaticResource ChatMessageListItemDataTemplateSelector}" ItemsSource="{Binding Items}" />
         </ScrollViewer>
     </Grid>
 </UserControl>
