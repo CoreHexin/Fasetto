@@ -48,12 +48,72 @@
                     Text="Parnell" />
 
                 <StackPanel Grid.Column="1" Orientation="Horizontal">
-                    <Button Content="{StaticResource FontAwesomeSearchIcon}" Style="{StaticResource IconButtonStyle}" />
-                    <Button Content="{StaticResource FontAwesomeEllipsisVerticalIcon}" Style="{StaticResource IconButtonStyle}" />
+                    <Button
+                        Content="{StaticResource FontAwesomeSearchIcon}"
+                        Cursor="Hand"
+                        Style="{StaticResource IconButtonStyle}" />
+                    <Button
+                        Content="{StaticResource FontAwesomeEllipsisVerticalIcon}"
+                        Cursor="Hand"
+                        Style="{StaticResource IconButtonStyle}" />
                 </StackPanel>
             </Grid>
 
             <controls:ChatMessageListControl Grid.Row="1" Margin="10" />
+
+            <!--  信息发送栏  -->
+            <Grid
+                Grid.Row="2"
+                Height="150"
+                Background="{StaticResource ForegroundLightColorBrush}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <StackPanel Height="30" Orientation="Horizontal">
+                    <!--  表情包按钮  -->
+                    <Button
+                        Margin="5,0,5,0"
+                        Content="{StaticResource FontAwesomeSmileIcon}"
+                        Cursor="Hand"
+                        Foreground="{StaticResource WordOrangeColorBrush}"
+                        Style="{StaticResource MessageSentIconButtonStyle}" />
+
+
+                    <!--  添加附件按钮  -->
+                    <Button
+                        Content="{StaticResource FontAwesomePaperclipIcon}"
+                        Cursor="Hand"
+                        Foreground="{StaticResource ForegroundDarkColorBrush}"
+                        Style="{StaticResource MessageSentIconButtonStyle}" />
+
+                </StackPanel>
+
+                <!--  消息输入文本框  -->
+                <TextBox
+                    Grid.Row="1"
+                    attached:TextBoxAttachedProperties.IsFocused="True"
+                    AcceptsReturn="True"
+                    AcceptsTab="True"
+                    BorderThickness="0"
+                    FontSize="16"
+                    VerticalScrollBarVisibility="Auto" />
+
+                <!--  发送按钮  -->
+                <Button
+                    Grid.Row="2"
+                    Width="80"
+                    Height="30"
+                    Margin="0,0,20,10"
+                    Padding="5"
+                    HorizontalAlignment="Right"
+                    Background="{StaticResource WordGreenColorBrush}"
+                    Content="发送"
+                    Cursor="Hand"
+                    FontSize="{StaticResource FontSizeM}" />
+            </Grid>
         </Grid>
     </Grid>
 </Page>
