@@ -15,7 +15,7 @@
             <Setter Property="Background" Value="{StaticResource ForegroundLightColorBrush}" />
             <Style.Triggers>
                 <DataTrigger Binding="{Binding IsSelected}" Value="true">
-                    <Setter Property="Background" Value="{StaticResource WordVeryLightBlueColorBrush}" />
+                    <Setter Property="Background" Value="{StaticResource WordVeryVeryLightBlueColorBrush}" />
                 </DataTrigger>
             </Style.Triggers>
         </Style>
@@ -29,7 +29,7 @@
                             <Storyboard>
                                 <ColorAnimation
                                     Storyboard.TargetProperty="Background.Color"
-                                    To="{StaticResource WordVeryLightBlueColor}"
+                                    To="{StaticResource WordVeryVeryLightBlueColor}"
                                     Duration="0:0:0.3" />
                             </Storyboard>
                         </BeginStoryboard>

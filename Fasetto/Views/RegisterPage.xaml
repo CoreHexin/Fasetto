@@ -52,7 +52,8 @@
                             HorizontalAlignment="Center"
                             attached:ButtonAttachedProperties.IsBusy="{Binding RegisterCommand.IsRunning}"
                             Command="{Binding RegisterCommand}"
-                            Content="注册" />
+                            Content="注册"
+                            IsDefault="True" />
 
                     </StackPanel>
                 </Border>
