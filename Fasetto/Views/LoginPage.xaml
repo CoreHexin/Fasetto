@@ -37,7 +37,10 @@
                             Text="It's about to get fun" />
 
                         <!--  Email  -->
-                        <TextBox Tag="输入邮箱" Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" />
+                        <TextBox
+                            attached:TextBoxAttachedProperties.IsFocused="True"
+                            Tag="输入邮箱"
+                            Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" />
 
                         <!--  Password  -->
                         <PasswordBox
@@ -49,7 +52,8 @@
                             HorizontalAlignment="Center"
                             attached:ButtonAttachedProperties.IsBusy="{Binding LoginCommand.IsRunning}"
                             Command="{Binding LoginCommand}"
-                            Content="登录" />
+                            Content="登录"
+                            IsDefault="True" />
 
                     </StackPanel>
                 </Border>
