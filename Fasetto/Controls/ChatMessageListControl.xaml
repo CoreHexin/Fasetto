@@ -29,7 +29,7 @@
     </UserControl.Resources>
 
     <Grid>
-        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
             <ItemsControl ItemTemplateSelector="{StaticResource ChatMessageListItemDataTemplateSelector}" ItemsSource="{Binding Items}" />
         </ScrollViewer>
     </Grid>

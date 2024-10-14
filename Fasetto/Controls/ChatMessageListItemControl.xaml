@@ -11,7 +11,7 @@
     d:DesignWidth="300"
     mc:Ignorable="d">
     <UserControl.Resources>
-        <!-- 鼠标悬停背景变色 -->
+        <!--  鼠标悬停背景变色  -->
         <Style x:Key="MessageBubbleMouseOverStyle" TargetType="Border">
             <Setter Property="Background" Value="{StaticResource ForegroundLightColorBrush}" />
             <Style.Triggers>
@@ -21,7 +21,7 @@
             </Style.Triggers>
         </Style>
 
-        <!-- 鼠标悬停背景变色 -->
+        <!--  鼠标悬停背景变色  -->
         <Style x:Key="MessageBubbleMouseOverPathStyle" TargetType="Path">
             <Setter Property="Fill" Value="{StaticResource ForegroundLightColorBrush}" />
             <Style.Triggers>
