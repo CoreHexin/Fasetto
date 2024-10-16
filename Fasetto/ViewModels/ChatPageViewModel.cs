@@ -11,6 +11,15 @@ public partial class ChatPageViewModel : ObservableObject
     [ObservableProperty]
     private bool _showSideMenu;
 
+    /// <summary>
+    /// 是否显示附件菜单
+    /// </summary>
+    [ObservableProperty]
+    private bool _isShowAttachmentMenu;
+
+    [ObservableProperty]
+    private bool _isShowEmojiMenu;
+
     public ChatPageViewModel()
     {
         ShowSideMenu = true;
@@ -20,5 +29,17 @@ public partial class ChatPageViewModel : ObservableObject
     private void ToggleSideMenu()
     {
         ShowSideMenu = !ShowSideMenu;
+    }
+
+    [RelayCommand]
+    private void ToggleAttachmentMenu()
+    {
+        IsShowAttachmentMenu = !IsShowAttachmentMenu;
+    }
+
+    [RelayCommand]
+    private void ToggleEmojiMenu()
+    {
+        IsShowEmojiMenu = !IsShowEmojiMenu;
     }
 }

@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:attached="clr-namespace:Fasetto.AttachedProperties"
     xmlns:controls="clr-namespace:Fasetto.Controls"
+    xmlns:converters="clr-namespace:Fasetto.ValueConverters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Fasetto.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -31,7 +32,7 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <!--  菜单栏  -->
+            <!--  顶部菜单栏  -->
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -75,19 +76,54 @@
                 <StackPanel Height="30" Orientation="Horizontal">
                     <!--  表情包按钮  -->
                     <Button
+                        x:Name="ToggleEmojiMenuButton"
                         Margin="5,0,5,0"
+                        Command="{Binding ToggleEmojiMenuCommand}"
                         Content="{StaticResource FontAwesomeSmileIcon}"
                         Cursor="Hand"
                         Foreground="{StaticResource WordOrangeColorBrush}"
                         Style="{StaticResource MessageSentIconButtonStyle}" />
 
+                    <!--  表情菜单弹出框  -->
+                    <Popup
+                        AllowsTransparency="True"
+                        IsOpen="{Binding IsShowEmojiMenu}"
+                        Placement="Top"
+                        PlacementTarget="{Binding ElementName=ToggleEmojiMenuButton}"
+                        StaysOpen="False">
+                        <Popup.HorizontalOffset>
+                            <MultiBinding Converter="{converters:PopupOffsetConverter}">
+                                <Binding Path="PlacementTarget.ActualWidth" RelativeSource="{RelativeSource Self}" />
+                                <Binding ElementName="EmojiMenu" Path="ActualWidth" />
+                            </MultiBinding>
+                        </Popup.HorizontalOffset>
+                        <controls:BubbleContentControl x:Name="EmojiMenu" Width="200" />
+                    </Popup>
 
                     <!--  添加附件按钮  -->
                     <Button
+                        x:Name="ToggleAttachmentMenuButton"
+                        Command="{Binding ToggleAttachmentMenuCommand}"
                         Content="{StaticResource FontAwesomePaperclipIcon}"
                         Cursor="Hand"
                         Foreground="{StaticResource ForegroundDarkColorBrush}"
                         Style="{StaticResource MessageSentIconButtonStyle}" />
+
+                    <!--  附件菜单弹出框  -->
+                    <Popup
+                        AllowsTransparency="True"
+                        IsOpen="{Binding IsShowAttachmentMenu}"
+                        Placement="Top"
+                        PlacementTarget="{Binding ElementName=ToggleAttachmentMenuButton}"
+                        StaysOpen="False">
+                        <Popup.HorizontalOffset>
+                            <MultiBinding Converter="{converters:PopupOffsetConverter}">
+                                <Binding Path="PlacementTarget.ActualWidth" RelativeSource="{RelativeSource Self}" />
+                                <Binding ElementName="AttachmentMenu" Path="ActualWidth" />
+                            </MultiBinding>
+                        </Popup.HorizontalOffset>
+                        <controls:BubbleContentControl x:Name="AttachmentMenu" Width="200" />
+                    </Popup>
 
                 </StackPanel>
 
