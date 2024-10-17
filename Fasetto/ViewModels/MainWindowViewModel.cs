@@ -30,6 +30,9 @@ public partial class MainWindowViewModel : ObservableRecipient, IRecipient<Value
     [ObservableProperty]
     public ApplicationPage _currentPage = ApplicationPage.Login;
 
+    [ObservableProperty]
+    private bool _dimmedOverlayVisible = false;
+
     /// <summary>
     /// 窗口状态
     /// </summary>

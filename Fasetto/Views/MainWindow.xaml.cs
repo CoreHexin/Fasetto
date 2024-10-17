@@ -27,6 +27,16 @@ public partial class MainWindow : Window
         SystemCommands.ShowSystemMenu(this, GetMousePosition());
     }
 
+    private void Window_Activated(object sender, EventArgs e)
+    {
+        (DataContext as MainWindowViewModel).DimmedOverlayVisible = false;
+    }
+
+    private void Window_Deactivated(object sender, EventArgs e)
+    {
+        (DataContext as MainWindowViewModel).DimmedOverlayVisible = true;
+    }
+
     /// <summary>
     /// 获取鼠标当前坐标
     /// </summary>
@@ -39,4 +49,5 @@ public partial class MainWindow : Window
 
         return new Point(postion.X + this.Left, postion.Y + this.Top);
     }
+
 }

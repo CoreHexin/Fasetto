@@ -14,8 +14,10 @@
     MinWidth="200"
     MinHeight="200"
     d:DataContext="{d:DesignInstance vm:MainWindowViewModel}"
+    Activated="Window_Activated"
     AllowsTransparency="True"
     Background="Transparent"
+    Deactivated="Window_Deactivated"
     Icon="../Images/Logo/logo-small.png"
     WindowStartupLocation="CenterScreen"
     WindowState="{Binding CurrentWindowState, Mode=TwoWay}"
@@ -118,6 +120,15 @@
                         <controls:PageHostControl CurPage="{Binding CurrentPage, Converter={converters:ApplicationPageConverter}}" />
                     </Border>
                 </Border>
+
+                <!--  暗淡层  -->
+                <Border
+                    x:Name="DimmedOverlay"
+                    Grid.Row="1"
+                    Panel.ZIndex="10"
+                    Background="{StaticResource ForegroundVeryDarkColorBrush}"
+                    Opacity="0.3"
+                    Visibility="{Binding DimmedOverlayVisible, Converter={converters:BoolToVisibilityConverter}, ConverterParameter=True}" />
 
             </Grid>
         </Grid>
