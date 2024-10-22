@@ -251,9 +251,9 @@
         </Setter>
     </Style>
 
-    <!--  消息发送栏Icon按钮样式  -->
+    <!--  无背景色Icon按钮样式  -->
     <Style
-        x:Key="MessageSentIconButtonStyle"
+        x:Key="NoBackgroundIconButtonStyle"
         BasedOn="{StaticResource BaseTextStyle}"
         TargetType="Button">
         <Setter Property="Background" Value="Transparent" />
@@ -276,17 +276,15 @@
                         BorderThickness="{TemplateBinding BorderThickness}"
                         SnapsToDevicePixels="true">
                         <Grid>
-                            <Viewbox>
-                                <TextBlock
-                                    x:Name="contentPresenter"
-                                    Margin="{TemplateBinding Padding}"
-                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                    Focusable="False"
-                                    FontFamily="{TemplateBinding FontFamily}"
-                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                    Text="{TemplateBinding Content}" />
-                            </Viewbox>
+                            <TextBlock
+                                x:Name="contentPresenter"
+                                Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Focusable="False"
+                                FontFamily="{TemplateBinding FontFamily}"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                Text="{TemplateBinding Content}" />
                         </Grid>
                     </Border>
                 </ControlTemplate>

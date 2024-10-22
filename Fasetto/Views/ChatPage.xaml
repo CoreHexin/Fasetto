@@ -21,7 +21,14 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <controls:SideMenuControl attached:ElementAnimationAttachedProperties.SlideAndFadeInFromLeft="{Binding ShowSideMenu}">
+        <!--  设置页面  -->
+        <controls:SettingsControl
+            Grid.ColumnSpan="2"
+            Panel.ZIndex="8"
+            Visibility="{Binding DataContext.IsShowSettingsMenu, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Converter={converters:BoolToVisibilityConverter}, ConverterParameter=True, FallbackValue=Hidden}" />
+
+        <!--  左侧栏  -->
+        <controls:SideMenuControl Grid.Column="0" attached:ElementAnimationAttachedProperties.SlideAndFadeInFromLeft="{Binding DataContext.IsShowSideMenu, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}}">
             <controls:ChatListControl />
         </controls:SideMenuControl>
 
@@ -60,6 +67,7 @@
                 </StackPanel>
             </Grid>
 
+            <!--  聊天信息框  -->
             <controls:ChatMessageListControl Grid.Row="1" Margin="10" />
 
             <!--  信息发送栏  -->
@@ -81,8 +89,9 @@
                         Command="{Binding ToggleEmojiMenuCommand}"
                         Content="{StaticResource FontAwesomeSmileIcon}"
                         Cursor="Hand"
+                        FontSize="{StaticResource FontSizeXL}"
                         Foreground="{StaticResource WordOrangeColorBrush}"
-                        Style="{StaticResource MessageSentIconButtonStyle}" />
+                        Style="{StaticResource NoBackgroundIconButtonStyle}" />
 
                     <!--  表情菜单弹出框  -->
                     <Popup
@@ -106,8 +115,9 @@
                         Command="{Binding ToggleAttachmentMenuCommand}"
                         Content="{StaticResource FontAwesomePaperclipIcon}"
                         Cursor="Hand"
+                        FontSize="{StaticResource FontSizeXL}"
                         Foreground="{StaticResource ForegroundDarkColorBrush}"
-                        Style="{StaticResource MessageSentIconButtonStyle}" />
+                        Style="{StaticResource NoBackgroundIconButtonStyle}" />
 
                     <!--  附件菜单弹出框  -->
                     <Popup
@@ -146,6 +156,7 @@
                     Padding="5"
                     HorizontalAlignment="Right"
                     Background="{StaticResource WordGreenColorBrush}"
+                    Command="{Binding SendCommand}"
                     Content="发送"
                     Cursor="Hand"
                     FontSize="{StaticResource FontSizeM}" />

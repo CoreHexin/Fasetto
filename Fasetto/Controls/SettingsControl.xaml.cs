@@ -4,14 +4,14 @@ using System.Windows.Controls;
 namespace Fasetto.Controls
 {
     /// <summary>
-    /// SideMenuControl.xaml 的交互逻辑
+    /// SettingsControl.xaml 的交互逻辑
     /// </summary>
-    public partial class SideMenuControl : UserControl
+    public partial class SettingsControl : UserControl
     {
-        public SideMenuControl()
+        public SettingsControl()
         {
             InitializeComponent();
-            DataContext = new SideMenuViewModel();
+            DataContext = new SettingsViewModel();
         }
     }
 }

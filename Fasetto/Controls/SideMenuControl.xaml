@@ -32,6 +32,7 @@
 
                         <Button
                             Grid.Column="2"
+                            Command="{Binding ShowSettingsMenuCommand}"
                             Content="{StaticResource FontAwesomeCogIcon}"
                             Foreground="{StaticResource WordDarkBlueColorBrush}"
                             Style="{StaticResource IconButtonStyle}" />

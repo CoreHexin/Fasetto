@@ -1,0 +1,111 @@
+﻿<UserControl
+    x:Class="Fasetto.Controls.SettingsControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:attached="clr-namespace:Fasetto.AttachedProperties"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Fasetto.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Border Background="{StaticResource ForegroundLightColorBrush}">
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid
+                Grid.Row="0"
+                Height="50"
+                Margin="0,0,0,20">
+                <Button
+                    Height="50"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Command="{Binding GoBackCommand}"
+                    Content="{StaticResource FontAwesomeLeftArrowIcon}"
+                    Cursor="Hand"
+                    FontSize="{StaticResource FontSizeXL}"
+                    Foreground="{StaticResource ForegroundDarkColorBrush}"
+                    Style="{StaticResource NoBackgroundIconButtonStyle}" />
+
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="{StaticResource FontSizeXL}">
+                    <Run
+                        FontFamily="{StaticResource FontAwesome}"
+                        Foreground="{StaticResource WordOrangeColorBrush}"
+                        Text="{StaticResource FontAwesomeCogIcon}" />
+                    <Run FontFamily="{StaticResource LatoRegular}" Text="设置" />
+                </TextBlock>
+            </Grid>
+
+            <Grid
+                Grid.Row="1"
+                Width="800"
+                VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="250" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Border
+                    Grid.Column="0"
+                    Height="{Binding ActualWidth, RelativeSource={RelativeSource Self}}"
+                    Margin="10"
+                    CornerRadius="10">
+                    <Border.Background>
+                        <ImageBrush ImageSource="/Images/Sample/rusty.jpg" Stretch="UniformToFill" />
+                    </Border.Background>
+                </Border>
+
+                <Grid
+                    Grid.Column="1"
+                    attached:PanelAttachedProperties.PanelChildMargin="10"
+                    TextBlock.FontSize="{StaticResource FontSizeL}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Text="昵称" />
+                    <TextBlock Grid.Row="1" Text="用户名" />
+                    <TextBlock Grid.Row="2" Text="密码" />
+                    <TextBlock Grid.Row="3" Text="邮箱" />
+
+                    <TextBlock
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Text="Luke" />
+
+                    <TextBlock
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Text="Luke" />
+
+                    <TextBlock
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Text="******" />
+
+                    <TextBlock
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        Text="Luke@qq.com" />
+
+                </Grid>
+
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

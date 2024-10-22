@@ -22,9 +22,10 @@
     <system:String x:Key="FontAwesomeEllipsisVerticalIcon">&#xf142;</system:String>
     <system:String x:Key="FontAwesomePaperclipIcon">&#xf0c6;</system:String>
     <system:String x:Key="FontAwesomeSmileIcon">&#xf118;</system:String>
+    <system:String x:Key="FontAwesomeLeftArrowIcon">&#xf060;</system:String>
 
     <Style x:Key="BaseTextStyle" TargetType="Control">
-        <Setter Property="FontFamily" Value="{StaticResource LatoThin}" />
+        <Setter Property="FontFamily" Value="{StaticResource LatoRegular}" />
         <Setter Property="FontSize" Value="{StaticResource FontSizeM}" />
     </Style>
 
@@ -35,7 +36,7 @@
     <Style BasedOn="{StaticResource BaseTextStyle}" TargetType="ListView" />
 
     <Style TargetType="TextBlock">
-        <Setter Property="FontFamily" Value="{StaticResource LatoThin}" />
+        <Setter Property="FontFamily" Value="{StaticResource LatoRegular}" />
     </Style>
 
 </ResourceDictionary>

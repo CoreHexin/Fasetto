@@ -36,6 +36,13 @@
     <None Remove="Images\Logo\logo.png" />
     <None Remove="Images\maximize.png" />
     <None Remove="Images\minimize.png" />
+    <None Remove="Images\Sample\rusty.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\Sample\rusty.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>

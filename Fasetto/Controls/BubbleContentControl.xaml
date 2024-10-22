@@ -18,14 +18,14 @@
             <Border.Effect>
                 <DropShadowEffect BlurRadius="5" ShadowDepth="2" />
             </Border.Effect>
-            
+
             <TextBlock
                 VerticalAlignment="Center"
                 FontFamily="{StaticResource LatoRegular}"
                 FontSize="16"
                 Foreground="{StaticResource ForegroundVeryDarkColorBrush}"
                 Text="test" />
-            
+
         </Border>
 
         <Path
