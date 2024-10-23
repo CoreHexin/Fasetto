@@ -37,6 +37,11 @@
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
+            <!--  鼠标双击事件  -->
+            <Grid.InputBindings>
+                <MouseBinding Command="{Binding EditCommand}" MouseAction="LeftDoubleClick" />
+            </Grid.InputBindings>
+
             <!--  label  -->
             <TextBlock
                 Margin="10"
@@ -52,7 +57,7 @@
                 attached:TextBoxAttachedProperties.FocusAndVisible="{Binding IsEditing}"
                 FontFamily="{StaticResource LatoRegular}"
                 FontSize="{StaticResource FontSizeL}"
-                Text="{Binding EditedText, FallbackValue=用户名}"
+                Text="{Binding EditedText, UpdateSourceTrigger=PropertyChanged, FallbackValue=用户名}"
                 Visibility="Hidden" />
 
             <TextBlock
@@ -61,6 +66,7 @@
                 VerticalAlignment="Center"
                 FontFamily="{StaticResource LatoRegular}"
                 FontSize="{StaticResource FontSizeL}"
+                Foreground="{StaticResource ForegroundDarkColorBrush}"
                 Text="{Binding OriginalText, FallbackValue=用户名}"
                 Visibility="{Binding IsEditing, Converter={converters:BoolToVisibilityConverter}}" />
 

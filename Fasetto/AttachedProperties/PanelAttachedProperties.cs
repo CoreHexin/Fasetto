@@ -21,15 +21,21 @@ public class PanelAttachedProperties
     private static void OnPanelChildMarginValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         var panel = d as Panel;
-        if (panel != null)
+
+        if (panel == null)
+            return;
+
+        RoutedEventHandler? handler = null;
+
+        handler = (sender, args) =>
         {
-            panel.Loaded += (s, ee) =>
+            foreach (var child in panel.Children)
             {
-                foreach (var child in panel.Children)
-                {
-                    (child as FrameworkElement).Margin = (Thickness)new ThicknessConverter().ConvertFromString(e.NewValue.ToString());
-                }
-            };
-        }
+                (child as FrameworkElement).Margin = (Thickness)new ThicknessConverter().ConvertFromString(e.NewValue.ToString());
+            }
+            panel.Loaded -= handler;
+        };
+
+        panel.Loaded += handler;
     }
 }

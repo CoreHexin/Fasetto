@@ -15,6 +15,7 @@ public partial class SettingsViewModel : ObservableObject
 
     public SettingsViewModel()
     {
+        // todo 测试阶段使用
         Name = new TextEntryViewModel("昵称", "用户昵称");
         Username = new TextEntryViewModel("用户名", "用户名");
         Password = new TextEntryViewModel("密码", "******");
