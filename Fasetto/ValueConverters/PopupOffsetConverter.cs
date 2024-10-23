@@ -10,8 +10,10 @@ public class PopupOffsetConverter : MarkupExtension, IMultiValueConverter
 
     public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
     {
-        double placementTargetWidth = (double)values[0];
-        double popupWidth = (double)values[1];
+        if (!double.TryParse(values[0].ToString(), out double placementTargetWidth))
+            return double.NaN;
+        if (!double.TryParse(values[1].ToString(), out double popupWidth))
+            return double.NaN;
         return (placementTargetWidth / 2.0) - (popupWidth / 2.0);
     }
 
