@@ -55,6 +55,7 @@
                     Grid.Column="0"
                     Height="{Binding ActualWidth, RelativeSource={RelativeSource Self}}"
                     Margin="0,0,30,0"
+                    VerticalAlignment="Top"
                     CornerRadius="10">
                     <Border.Background>
                         <ImageBrush ImageSource="/Images/Sample/rusty.jpg" Stretch="UniformToFill" />
@@ -64,8 +65,8 @@
                 <StackPanel Grid.Column="1">
                     <controls:TextEntryControl DataContext="{Binding Name}" />
                     <controls:TextEntryControl DataContext="{Binding Username}" />
-                    <controls:TextEntryControl DataContext="{Binding Password}" />
                     <controls:TextEntryControl DataContext="{Binding Email}" />
+                    <controls:PasswordEntryControl DataContext="{Binding Password}" />
                 </StackPanel>
             </Grid>
         </Grid>
