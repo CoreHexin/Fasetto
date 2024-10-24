@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Fasetto.Services;
+using Microsoft.Extensions.DependencyInjection;
 using System.Windows;
 
 namespace Fasetto;
@@ -17,6 +18,7 @@ public partial class App : Application
     private static IServiceProvider ConfigureServices()
     {
         var services = new ServiceCollection();
+        services.AddSingleton<IDialogService, DialogService>();
         return services.BuildServiceProvider();
     }
 

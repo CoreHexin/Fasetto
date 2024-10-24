@@ -77,7 +77,23 @@
                 Grid.Row="1"
                 Background="{StaticResource ForegroundLightColorBrush}"
                 ClipToBounds="True">
-                <ContentControl Margin="10" Content="{Binding Content}" />
+                <StackPanel>
+                    <TextBlock
+                        Padding="10"
+                        HorizontalAlignment="Center"
+                        FontFamily="{StaticResource LatoRegular}"
+                        FontSize="{StaticResource FontSizeL}"
+                        Foreground="{StaticResource ForegroundVeryDarkColorBrush}"
+                        Text="{Binding Message, FallbackValue=对话框消息}" />
+
+                    <Button
+                        HorizontalAlignment="Center"
+                        Click="CloseButton_Click"
+                        Content="确认"
+                        FontFamily="{StaticResource LatoRegular}"
+                        IsCancel="True"
+                        IsDefault="True" />
+                </StackPanel>
             </Border>
         </Grid>
     </Grid>

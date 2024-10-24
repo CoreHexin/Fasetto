@@ -1,5 +1,4 @@
-﻿using Fasetto.ViewModels;
-using System.Windows;
+﻿using System.Windows;
 
 namespace Fasetto.Views
 {
@@ -11,7 +10,6 @@ namespace Fasetto.Views
         public DialogWindow()
         {
             InitializeComponent();
-            DataContext = new DialogWindowViewModel();
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
