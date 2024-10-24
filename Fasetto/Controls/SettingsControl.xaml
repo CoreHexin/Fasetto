@@ -67,6 +67,11 @@
                     <controls:TextEntryControl DataContext="{Binding Username}" />
                     <controls:TextEntryControl DataContext="{Binding Email}" />
                     <controls:PasswordEntryControl DataContext="{Binding Password}" />
+                    <Button
+                        HorizontalAlignment="Center"
+                        Command="{Binding LogoutCommand}"
+                        Content="退出账号"
+                        FontSize="{StaticResource FontSizeS}" />
                 </StackPanel>
             </Grid>
         </Grid>

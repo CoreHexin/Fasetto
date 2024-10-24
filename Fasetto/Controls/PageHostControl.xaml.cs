@@ -44,6 +44,12 @@ public partial class PageHostControl : UserControl
                 Application.Current.Dispatcher.Invoke(() => oldPageFrame.Content = null);
             });
         }
+        else
+        {
+            // 未应用动画的Page
+            oldPageFrame.Visibility = Visibility.Collapsed;
+            Application.Current.Dispatcher.Invoke(() => oldPageFrame.Content = null);
+        }
 
         newPageFrame.Content = e.NewValue;
     }

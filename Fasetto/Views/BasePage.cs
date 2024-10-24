@@ -13,7 +13,7 @@ public class BasePage : Page
     /// <summary>
     /// 动画的执行时间
     /// </summary>
-    public float SlideSeconds { get; set; } = 0.5f;
+    public float SlideSeconds { get; set; } = 0.3f;
 
     /// <summary>
     /// 是否已加载过
