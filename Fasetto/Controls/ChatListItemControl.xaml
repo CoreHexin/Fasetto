@@ -53,6 +53,10 @@
     </UserControl.Resources>
 
     <Border Style="{StaticResource BackgroundBorderStyle}">
+        <Border.InputBindings>
+            <MouseBinding Command="{Binding OpenMessageCommand}" MouseAction="LeftClick" />
+        </Border.InputBindings>
+
         <Grid Style="{StaticResource GridMouseEnterStyle}">
             <Grid.ColumnDefinitions>
                 <!--  新消息红色指示条  -->
