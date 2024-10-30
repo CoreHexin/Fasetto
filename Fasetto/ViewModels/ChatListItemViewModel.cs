@@ -57,6 +57,24 @@ public partial class ChatListItemViewModel : ObservableObject
                 IsSentByMe = false,
                 SentTime = DateTime.Parse("2024-10-10 09:19")
             },
+            new ChatMessageListItemViewModel()
+            {
+                SenderName = "Luke",
+                Message = "这是一条消息内容4" + DateTime.Now,
+                ShortName = "LM",
+                AvatarColor = "#3066c5",
+                IsSentByMe = true,
+                SentTime = DateTime.Parse("2024-10-10 09:15")
+            },
+            new ChatMessageListItemViewModel()
+            {
+                SenderName = "Parnell",
+                Message = "这是一条消息内容5\r\n换行消息" + DateTime.Now,
+                ShortName = "PL",
+                AvatarColor = "#00d405",
+                IsSentByMe = false,
+                SentTime = DateTime.Parse("2024-10-10 09:19")
+            },
         };
         return items;
     }
@@ -64,7 +82,6 @@ public partial class ChatListItemViewModel : ObservableObject
     [RelayCommand]
     public void OpenMessage()
     {
-        IsSelected = true;
         var items = GetChatMessageList();
         WeakReferenceMessenger.Default.Send(new ValueChangedMessage<ChatMessageListMessage>(new ChatMessageListMessage(items)));
     }

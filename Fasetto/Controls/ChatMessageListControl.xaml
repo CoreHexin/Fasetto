@@ -2,6 +2,7 @@
     x:Class="Fasetto.Controls.ChatMessageListControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:attached="clr-namespace:Fasetto.AttachedProperties"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Fasetto.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -29,7 +30,10 @@
     </UserControl.Resources>
 
     <Grid>
-        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+        <ScrollViewer
+            attached:ScrollViewerAttachedProperties.ScrollToBottom="{Binding Items}"
+            HorizontalScrollBarVisibility="Disabled"
+            VerticalScrollBarVisibility="Auto">
             <ItemsControl ItemTemplateSelector="{StaticResource ChatMessageListItemDataTemplateSelector}" ItemsSource="{Binding Items}" />
         </ScrollViewer>
     </Grid>
