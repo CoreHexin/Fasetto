@@ -12,7 +12,7 @@
     mc:Ignorable="d">
     <UserControl.Resources>
         <Style x:Key="BackgroundBorderStyle" TargetType="Border">
-            <Setter Property="Background" Value="{StaticResource ForegroundLightColorBrush}" />
+            <Setter Property="Background" Value="{StaticResource ChatListGrayColorBrush}" />
             <Style.Triggers>
                 <DataTrigger Binding="{Binding IsSelected}" Value="true">
                     <Setter Property="Background" Value="{StaticResource WordVeryVeryLightBlueColorBrush}" />

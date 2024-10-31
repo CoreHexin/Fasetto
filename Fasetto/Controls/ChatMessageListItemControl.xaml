@@ -63,7 +63,10 @@
 
             <!--  消息气泡  -->
             <Grid Grid.Row="0">
-                <StackPanel x:Name="MessageGrid" Orientation="Horizontal">
+                <StackPanel
+                    x:Name="MessageGrid"
+                    HorizontalAlignment="Left"
+                    Orientation="Horizontal">
                     <!--  消息气泡小三角  -->
                     <Path
                         x:Name="TriangleBubble"

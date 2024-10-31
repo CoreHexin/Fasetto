@@ -1,5 +1,4 @@
-﻿using Fasetto.ViewModels;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
 namespace Fasetto.AttachedProperties;
@@ -7,15 +6,15 @@ namespace Fasetto.AttachedProperties;
 public class ScrollViewerAttachedProperties
 {
     public static readonly DependencyProperty ScrollToBottomProperty = DependencyProperty.RegisterAttached(
-        "ScrollToBottom", typeof(List<ChatMessageListItemViewModel>), typeof(ScrollViewerAttachedProperties), 
+        "ScrollToBottom", typeof(bool), typeof(ScrollViewerAttachedProperties), 
         new PropertyMetadata(OnScrollToBottomValueChanged));
 
-    public static List<ChatMessageListItemViewModel> GetScrollToBottom(DependencyObject obj)
+    public static bool GetScrollToBottom(DependencyObject obj)
     {
-        return (List<ChatMessageListItemViewModel>)obj.GetValue(ScrollToBottomProperty);
+        return (bool)obj.GetValue(ScrollToBottomProperty);
     }
 
-    public static void SetScrollToBottom(DependencyObject obj, List<ChatMessageListItemViewModel> value)
+    public static void SetScrollToBottom(DependencyObject obj, bool value)
     {
         obj.SetValue(ScrollToBottomProperty, value);
     }
@@ -25,6 +24,7 @@ public class ScrollViewerAttachedProperties
         if (!(d is ScrollViewer scrollViewer))
             return;
 
-        ((ScrollViewer)d).ScrollToBottom();
+        if ((bool)e.NewValue)
+            ((ScrollViewer)d).ScrollToBottom();
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace Fasetto.ViewModels;
+﻿using System.Collections.ObjectModel;
+
+namespace Fasetto.ViewModels;
 
 public class ChatMessageListDesignViewModel : ChatMessageListViewModel
 {
@@ -6,7 +8,7 @@ public class ChatMessageListDesignViewModel : ChatMessageListViewModel
 
     public ChatMessageListDesignViewModel()
     {
-        Items = new List<ChatMessageListItemViewModel>
+        Items = new ObservableCollection<ChatMessageListItemViewModel>
         {
             new ChatMessageListItemViewModel()
             {

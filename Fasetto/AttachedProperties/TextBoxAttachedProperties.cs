@@ -10,10 +10,16 @@ public class TextBoxAttachedProperties
 
     private static void OnIsFocusedPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-        if (d is Control control)
-        {
-            control.Focus();
-        }
+        if (!(d is Control control))
+            return;
+
+        control.Loaded -= Control_Loaded;
+        control.Loaded += Control_Loaded;
+    }
+
+    private static void Control_Loaded(object sender, RoutedEventArgs e)
+    {
+        ((Control)sender).Focus();
     }
 
     public static bool GetIsFocused(DependencyObject obj)

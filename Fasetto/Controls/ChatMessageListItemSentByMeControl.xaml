@@ -63,7 +63,10 @@
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0">
-                <StackPanel x:Name="MessageGrid" Orientation="Horizontal">
+                <StackPanel
+                    x:Name="MessageGrid"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal">
                     <!--  消息气泡  -->
                     <Border
                         Padding="10"

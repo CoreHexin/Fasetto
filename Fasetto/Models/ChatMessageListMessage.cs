@@ -1,12 +1,13 @@
 ﻿using Fasetto.ViewModels;
+using System.Collections.ObjectModel;
 
 namespace Fasetto.Models;
 
 public class ChatMessageListMessage
 {
-    public List<ChatMessageListItemViewModel> Items { get; set; }
+    public ObservableCollection<ChatMessageListItemViewModel> Items { get; set; }
 
-    public ChatMessageListMessage(List<ChatMessageListItemViewModel> _items)
+    public ChatMessageListMessage(ObservableCollection<ChatMessageListItemViewModel> _items)
     {
         Items = _items;
     }

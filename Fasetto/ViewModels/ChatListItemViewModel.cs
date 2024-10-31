@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using CommunityToolkit.Mvvm.Messaging.Messages;
 using Fasetto.Models;
+using System.Collections.ObjectModel;
 
 namespace Fasetto.ViewModels;
 
@@ -26,9 +27,9 @@ public partial class ChatListItemViewModel : ObservableObject
     [ObservableProperty]
     private bool _isSelected;
 
-    private List<ChatMessageListItemViewModel> GetChatMessageList()
+    private ObservableCollection<ChatMessageListItemViewModel> GetChatMessageList()
     {
-        var items = new List<ChatMessageListItemViewModel>
+        var items = new ObservableCollection<ChatMessageListItemViewModel>
         {
             new ChatMessageListItemViewModel()
             {
