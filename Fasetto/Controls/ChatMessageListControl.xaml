@@ -149,9 +149,10 @@
                 x:Name="MessageInputTextBox"
                 Grid.Row="1"
                 attached:TextBoxAttachedProperties.IsFocused="True"
+                AcceptsReturn="True"
                 BorderThickness="0"
                 FontSize="16"
-                KeyDown="MessageInputTextBox_KeyDown"
+                PreviewKeyDown="MessageInputTextBox_PreviewKeyDown"
                 Text="{Binding Message, UpdateSourceTrigger=PropertyChanged}"
                 VerticalScrollBarVisibility="Auto" />
 

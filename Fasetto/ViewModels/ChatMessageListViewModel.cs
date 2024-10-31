@@ -54,7 +54,7 @@ public partial class ChatMessageListViewModel : ObservableRecipient, IRecipient<
     }
 
     [RelayCommand]
-    private void Send()
+    public void Send()
     {
         if (string.IsNullOrWhiteSpace(Message))
             return;
