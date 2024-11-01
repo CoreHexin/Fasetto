@@ -11,7 +11,7 @@
     xmlns:selectors="clr-namespace:Fasetto.TemplateSelectors"
     xmlns:vm="clr-namespace:Fasetto.ViewModels"
     d:DesignWidth="300"
-    DataContext="{x:Static vm:ChatMessageListDesignViewModel.Instance}"
+    d:DataContext="{x:Static vm:ChatMessageListDesignViewModel.Instance}"
     mc:Ignorable="d">
 
     <UserControl.Resources>

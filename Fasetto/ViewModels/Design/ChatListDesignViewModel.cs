@@ -29,7 +29,6 @@ public partial class ChatListDesignViewModel : ChatListViewModel
                 Message = "This chat app is awesome! I bet it will be fast too",
                 ShortName = "PL",
                 AvatarColor = "#00d405",
-                IsSelected = true
             },
             new ChatListItemViewModel
             {

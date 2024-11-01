@@ -12,6 +12,7 @@ namespace Fasetto.Controls
         public ChatMessageListControl()
         {
             InitializeComponent();
+            DataContext = new ChatMessageListViewModel();
         }
 
         // Shift/Ctrl + Enter 换行
