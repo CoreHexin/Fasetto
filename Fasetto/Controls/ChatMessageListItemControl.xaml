@@ -33,14 +33,31 @@
     </UserControl.Resources>
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="2*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
+        <!--  信息发送时间  -->
+        <TextBlock
+            Grid.Row="0"
+            Grid.ColumnSpan="3"
+            Margin="0,0,0,5"
+            HorizontalAlignment="Center"
+            FontSize="{StaticResource FontSizeS}"
+            Foreground="{StaticResource ForegroundLightColorBrush}"
+            Text="{Binding SentTime, Converter={converters:DatetimeConverter}}" />
+
         <!--  头像  -->
         <Border
+            Grid.Row="1"
+            Grid.Column="0"
             Width="40"
             Height="{Binding RelativeSource={RelativeSource self}, Path=ActualWidth}"
             VerticalAlignment="Top"
@@ -55,48 +72,38 @@
         </Border>
 
         <!--  聊天信息  -->
-        <Grid Grid.Column="1" HorizontalAlignment="Left">
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-            </Grid.RowDefinitions>
+        <Grid
+            x:Name="MessageGrid"
+            Grid.Row="1"
+            Grid.Column="1"
+            HorizontalAlignment="Left">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <!--  消息气泡小三角  -->
+            <Path
+                x:Name="TriangleBubble"
+                Grid.Column="0"
+                Margin="5,0,-1,0"
+                Data="M 0,20 L 10,15 L 10,25"
+                Style="{StaticResource MessageBubbleMouseOverPathStyle}" />
 
             <!--  消息气泡  -->
-            <Grid Grid.Row="0">
-                <StackPanel
-                    x:Name="MessageGrid"
-                    HorizontalAlignment="Left"
-                    Orientation="Horizontal">
-                    <!--  消息气泡小三角  -->
-                    <Path
-                        x:Name="TriangleBubble"
-                        Margin="5,0,-1,0"
-                        Data="M 0,20 L 10,15 L 10,25"
-                        Style="{StaticResource MessageBubbleMouseOverPathStyle}" />
-
-                    <Border
-                        Padding="10"
-                        CornerRadius="8"
-                        Style="{StaticResource MessageBubbleMouseOverStyle}">
-                        <TextBlock
-                            VerticalAlignment="Center"
-                            FontFamily="{StaticResource LatoRegular}"
-                            FontSize="16"
-                            Foreground="{StaticResource ForegroundVeryDarkColorBrush}"
-                            Text="{Binding Message}"
-                            TextWrapping="Wrap" />
-                    </Border>
-                </StackPanel>
-            </Grid>
-
-            <!--  信息发送时间  -->
-            <TextBlock
-                Grid.Row="1"
-                Margin="0,5,0,0"
-                HorizontalAlignment="Center"
-                FontSize="{StaticResource FontSizeS}"
-                Foreground="{StaticResource ForegroundLightColorBrush}"
-                Text="{Binding SentTime, Converter={converters:DatetimeConverter}}" />
+            <Border
+                Grid.Column="1"
+                Padding="10"
+                CornerRadius="8"
+                Style="{StaticResource MessageBubbleMouseOverStyle}">
+                <TextBlock
+                    VerticalAlignment="Center"
+                    FontFamily="{StaticResource LatoRegular}"
+                    FontSize="16"
+                    Foreground="{StaticResource ForegroundVeryDarkColorBrush}"
+                    Text="{Binding Message}"
+                    TextWrapping="Wrap" />
+            </Border>
         </Grid>
     </Grid>
 </UserControl>

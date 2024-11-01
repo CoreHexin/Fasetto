@@ -33,14 +33,30 @@
     </UserControl.Resources>
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="2*" />
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
 
+        <!--  信息发送时间  -->
+        <TextBlock
+            Grid.Row="0"
+            Grid.ColumnSpan="3"
+            Margin="0,0,0,5"
+            HorizontalAlignment="Center"
+            FontSize="{StaticResource FontSizeS}"
+            Foreground="{StaticResource ForegroundLightColorBrush}"
+            Text="{Binding SentTime, Converter={converters:DatetimeConverter}}" />
+
         <!--  头像  -->
         <Border
+            Grid.Row="1"
             Grid.Column="2"
             Width="40"
             Height="{Binding RelativeSource={RelativeSource self}, Path=ActualWidth}"
@@ -56,46 +72,37 @@
         </Border>
 
         <!--  聊天信息  -->
-        <Grid Grid.Column="1" HorizontalAlignment="Right">
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-            </Grid.RowDefinitions>
+        <Grid
+            x:Name="MessageGrid"
+            Grid.Row="1"
+            Grid.Column="1"
+            HorizontalAlignment="Right">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
 
-            <Grid Grid.Row="0">
-                <StackPanel
-                    x:Name="MessageGrid"
-                    HorizontalAlignment="Right"
-                    Orientation="Horizontal">
-                    <!--  消息气泡  -->
-                    <Border
-                        Padding="10"
-                        CornerRadius="8"
-                        Style="{StaticResource MessageBubbleMouseOverStyle}">
-                        <TextBlock
-                            VerticalAlignment="Center"
-                            FontFamily="{StaticResource LatoRegular}"
-                            FontSize="16"
-                            Foreground="{StaticResource ForegroundVeryDarkColorBrush}"
-                            Text="{Binding Message}"
-                            TextWrapping="Wrap" />
-                    </Border>
-                    <!--  消息气泡小三角  -->
-                    <Path
-                        Margin="-1,0,5,0"
-                        Data="M 0,15 L 0,25 L 10,20"
-                        Style="{StaticResource MessageBubbleMouseOverPathStyle}" />
-                </StackPanel>
-            </Grid>
+            <!--  消息气泡  -->
+            <Border
+                Grid.Column="0"
+                Padding="10"
+                CornerRadius="8"
+                Style="{StaticResource MessageBubbleMouseOverStyle}">
+                <TextBlock
+                    VerticalAlignment="Center"
+                    FontFamily="{StaticResource LatoRegular}"
+                    FontSize="16"
+                    Foreground="{StaticResource ForegroundVeryDarkColorBrush}"
+                    Text="{Binding Message}"
+                    TextWrapping="Wrap" />
+            </Border>
 
-            <!--  信息发送时间  -->
-            <TextBlock
-                Grid.Row="1"
-                Margin="0,5,0,0"
-                HorizontalAlignment="Center"
-                FontSize="{StaticResource FontSizeS}"
-                Foreground="{StaticResource ForegroundLightColorBrush}"
-                Text="{Binding SentTime, Converter={converters:DatetimeConverter}}" />
+            <!--  消息气泡小三角  -->
+            <Path
+                Grid.Column="1"
+                Margin="-1,0,5,0"
+                Data="M 0,15 L 0,25 L 10,20"
+                Style="{StaticResource MessageBubbleMouseOverPathStyle}" />
         </Grid>
     </Grid>
 </UserControl>
