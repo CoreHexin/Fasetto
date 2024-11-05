@@ -6,6 +6,18 @@ namespace Fasetto.Animation;
 public static class ElementAnimations
 {
     /// <summary>
+    /// 淡入动画
+    /// </summary>
+    /// <param name="element"></param>
+    /// <param name="seconds"></param>
+    public static void FadeIn(this FrameworkElement element, float seconds)
+    {
+        var storyboard = new Storyboard();
+        storyboard.AddFadeIn(seconds);
+        storyboard.Begin(element);
+    }
+
+    /// <summary>
     /// 从左侧滑入加淡入效果
     /// </summary>
     /// <param name="element"></param>
