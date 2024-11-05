@@ -7,9 +7,11 @@ public partial class ChatMessageListItemImageViewModel : ObservableObject
     public string FileName { get; set; } = string.Empty;
 
     // 附件大小, 单位Byte
-    public long  FileSize { get; set; }
+    public long FileSize { get; set; }
 
-    public string? LocalFilePath { get; set; }
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(ImageLoaded))]
+    private string? _localFilePath;
 
     public bool ImageLoaded => LocalFilePath != null;
 
@@ -25,8 +27,7 @@ public partial class ChatMessageListItemImageViewModel : ObservableObject
 
             _thumbnailUrl = value;
 
-            //Task.Delay(1000).Wait();
-            LocalFilePath = "/Images/Sample/rusty.jpg";
+            Task.Delay(2000).ContinueWith(t => LocalFilePath = "/Images/Sample/rusty.jpg");
         }
     }
 

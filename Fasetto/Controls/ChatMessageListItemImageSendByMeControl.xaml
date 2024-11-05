@@ -50,7 +50,19 @@
                 Text="{Binding ShortName}" />
         </Border>
 
-        <!--  聊天信息  -->
+        <!--  loading  -->
+        <TextBlock
+            Grid.Row="1"
+            Grid.Column="1"
+            Margin="0,0,20,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
+            FontSize="{StaticResource FontSizeM}"
+            Foreground="{StaticResource ForegroundDarkColorBrush}"
+            Style="{StaticResource SpinningTextStyle}"
+            Visibility="{Binding Image.ImageLoaded, Converter={converters:BoolToVisibilityConverter}}" />
+
+        <!--  图像信息  -->
         <Border
             Grid.Row="1"
             Grid.Column="1"
@@ -60,8 +72,7 @@
                 MaxWidth="200"
                 HorizontalAlignment="Right"
                 attached:ImageAttachedProperties.ClipFromBorder="True"
-                DataContext="{Binding Image}"
-                Source="{Binding LocalFilePath}"
+                Source="{Binding Image.LocalFilePath, TargetNullValue={x:Null}}"
                 Stretch="Uniform" />
         </Border>
     </Grid>
