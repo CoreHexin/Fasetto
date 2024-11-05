@@ -56,7 +56,7 @@ public partial class ChatListItemViewModel : ObservableObject
                 ShortName = "PL",
                 AvatarColor = "#00d405",
                 IsSentByMe = false,
-                SentTime = DateTime.Parse("2024-10-10 09:19")
+                SentTime = DateTime.Parse("2024-10-10 09:19"),
             },
             new ChatMessageListItemViewModel()
             {
@@ -65,7 +65,11 @@ public partial class ChatListItemViewModel : ObservableObject
                 ShortName = "LM",
                 AvatarColor = "#3066c5",
                 IsSentByMe = true,
-                SentTime = DateTime.Parse("2024-10-10 09:15")
+                SentTime = DateTime.Parse("2024-10-10 09:15"),
+                Image = new ChatMessageListItemImageViewModel
+                {
+                    ThumbnailUrl = "http://thumbnailUrl"
+                }
             },
             new ChatMessageListItemViewModel()
             {
@@ -74,7 +78,11 @@ public partial class ChatListItemViewModel : ObservableObject
                 ShortName = "PL",
                 AvatarColor = "#00d405",
                 IsSentByMe = false,
-                SentTime = DateTime.Parse("2024-10-10 09:19")
+                SentTime = DateTime.Parse("2024-10-10 09:19"),
+                Image = new ChatMessageListItemImageViewModel
+                {
+                    ThumbnailUrl = "http://thumbnailUrl"
+                }
             },
         };
         return items;

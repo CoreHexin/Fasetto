@@ -24,4 +24,8 @@ public partial class ChatMessageListItemViewModel : ObservableObject
 
     [ObservableProperty]
     private DateTime _sentTime;
+
+    public ChatMessageListItemImageViewModel? Image { get; set; }
+
+    public bool HasImage => Image != null;
 }

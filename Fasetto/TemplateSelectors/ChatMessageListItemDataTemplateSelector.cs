@@ -10,11 +10,24 @@ namespace Fasetto.TemplateSelectors;
 public class ChatMessageListItemDataTemplateSelector : DataTemplateSelector
 {
     public DataTemplate ChatMessageListItemDataTemplate { get; set; }
+    public DataTemplate ChatMessageListItemImageDataTemplate { get; set; }
     public DataTemplate ChatMessageListItemSentByMeDataTemplate { get; set; }
+    public DataTemplate ChatMessageListItemImageSendByMeDataTemplate { get; set; }
 
     public override DataTemplate SelectTemplate(object item, DependencyObject container)
     {
-        if (item is ChatMessageListItemViewModel vm && vm.IsSentByMe == true)
+        if (!(item is ChatMessageListItemViewModel vm))
+            throw new ArgumentException("Not ChatMessageListItemViewModel");
+
+        if (vm.HasImage == true)
+        {
+            if (vm.IsSentByMe == true)
+                return ChatMessageListItemImageSendByMeDataTemplate;
+            else
+                return ChatMessageListItemImageDataTemplate;
+        }
+            
+        if (vm.IsSentByMe == true)
             return ChatMessageListItemSentByMeDataTemplate;
 
         return ChatMessageListItemDataTemplate;
