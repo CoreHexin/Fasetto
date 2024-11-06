@@ -34,7 +34,7 @@ public partial class ChatListItemViewModel : ObservableObject
             new ChatMessageListItemViewModel()
             {
                 SenderName = "Parnell",
-                Message = "这是一条消息内容1" + DateTime.Now,
+                Message = "这是一条消息内容1\n" + DateTime.Now,
                 ShortName = "PL",
                 AvatarColor = "#00d405",
                 IsSentByMe = false,
@@ -43,7 +43,7 @@ public partial class ChatListItemViewModel : ObservableObject
             new ChatMessageListItemViewModel()
             {
                 SenderName = "Luke",
-                Message = "这是一条消息内容2" + DateTime.Now,
+                Message = "这是一条消息内容2\n" + DateTime.Now,
                 ShortName = "LM",
                 AvatarColor = "#3066c5",
                 IsSentByMe = true,
@@ -52,7 +52,7 @@ public partial class ChatListItemViewModel : ObservableObject
             new ChatMessageListItemViewModel()
             {
                 SenderName = "Parnell",
-                Message = "这是一条消息内容3\r\n换行消息" + DateTime.Now,
+                Message = "这是一条消息内容3\n换行消息" + DateTime.Now,
                 ShortName = "PL",
                 AvatarColor = "#00d405",
                 IsSentByMe = false,
@@ -61,7 +61,6 @@ public partial class ChatListItemViewModel : ObservableObject
             new ChatMessageListItemViewModel()
             {
                 SenderName = "Luke",
-                Message = "这是一条消息内容4" + DateTime.Now,
                 ShortName = "LM",
                 AvatarColor = "#3066c5",
                 IsSentByMe = true,
@@ -74,7 +73,6 @@ public partial class ChatListItemViewModel : ObservableObject
             new ChatMessageListItemViewModel()
             {
                 SenderName = "Parnell",
-                Message = "这是一条消息内容5\r\n换行消息" + DateTime.Now,
                 ShortName = "PL",
                 AvatarColor = "#00d405",
                 IsSentByMe = false,
@@ -92,6 +90,6 @@ public partial class ChatListItemViewModel : ObservableObject
     public void OpenMessage()
     {
         var items = GetChatMessageList();
-        WeakReferenceMessenger.Default.Send(new ValueChangedMessage<ChatMessageListMessage>(new ChatMessageListMessage(items)));
+        WeakReferenceMessenger.Default.Send(new ValueChangedMessage<ChatMessageListMessage>(new ChatMessageListMessage(Name,items)));
     }
 }

@@ -61,10 +61,11 @@
                 FontFamily="{StaticResource LatoRegular}"
                 FontSize="{StaticResource FontSizeXL}"
                 Foreground="{StaticResource ForegroundLightColorBrush}"
-                Text="Parnell" />
+                Text="{Binding Name}" />
 
             <StackPanel Grid.Column="1" Orientation="Horizontal">
                 <Button
+                    Command="{Binding OpenSearchWindowCommand}"
                     Content="{StaticResource FontAwesomeSearchIcon}"
                     Cursor="Hand"
                     Style="{StaticResource IconButtonStyle}" />
