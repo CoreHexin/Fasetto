@@ -27,7 +27,7 @@ public partial class ChatMessageListItemImageViewModel : ObservableObject
 
             _thumbnailUrl = value;
 
-            Task.Delay(2000).ContinueWith(t => LocalFilePath = "/Images/Sample/rusty.jpg");
+            Task.Delay(200).ContinueWith(t => LocalFilePath = "/Images/Sample/rusty.jpg");
         }
     }
 
