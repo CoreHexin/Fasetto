@@ -27,110 +27,107 @@
     <WindowChrome.WindowChrome>
         <WindowChrome
             CaptionHeight="42"
-            CornerRadius="0"
             GlassFrameThickness="0"
             ResizeBorderThickness="{Binding ResizeBorder}" />
     </WindowChrome.WindowChrome>
 
-    <Border>
-        <Grid Margin="{Binding OuterMarginSize}">
+    <Grid Margin="{Binding OuterMarginSize}">
 
-            <!--  Opacity mask for corners on grid  -->
+        <!--  Opacity mask for corners on grid  -->
+        <Border
+            x:Name="mask"
+            Background="{StaticResource ForegroundLightColorBrush}"
+            CornerRadius="{Binding WindowCornerRadius}" />
+
+        <!--  窗口边界和阴影效果  -->
+        <Border Background="{StaticResource ForegroundLightColorBrush}" CornerRadius="{Binding WindowCornerRadius}">
+            <Border.Effect>
+                <DropShadowEffect Opacity="0.2" ShadowDepth="0" />
+            </Border.Effect>
+        </Border>
+
+        <Grid>
+            <!--  不透明蒙版  -->
+            <Grid.OpacityMask>
+                <VisualBrush Visual="{Binding ElementName=mask}" />
+            </Grid.OpacityMask>
+
+            <Grid.RowDefinitions>
+                <!--  标题栏  -->
+                <RowDefinition Height="42" />
+                <!--  页面内容区域  -->
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!--  标题栏  -->
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <!--  icon  -->
+                    <ColumnDefinition Width="auto" />
+                    <!--  标题  -->
+                    <ColumnDefinition Width="*" />
+                    <!--  窗口按钮  -->
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+
+                <Button Click="IconButton_click" Style="{StaticResource SystemIconButtonStyle}">
+                    <Image Source="../Images/Logo/logo-small.png" />
+                </Button>
+
+                <Viewbox
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    Margin="5">
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        FontFamily="{StaticResource LatoBold}"
+                        FontSize="{StaticResource FontSizeL}">
+                        <Run Foreground="{StaticResource WordOrangeColorBrush}" Text="W" />
+                        <Run Foreground="{StaticResource WordBlueColorBrush}" Text="O" />
+                        <Run Foreground="{StaticResource WordRedColorBrush}" Text="R" />
+                        <Run Foreground="{StaticResource WordGreenColorBrush}" Text="D" />
+                    </TextBlock>
+                </Viewbox>
+
+                <StackPanel Grid.Column="2" Orientation="Horizontal">
+                    <Button Command="{Binding MinimizeCommand}" Style="{StaticResource WindowControlButtonStyle}">
+                        <Image Source="../Images/minimize.png" />
+                    </Button>
+                    <Button Command="{Binding MaximizeCommand}" Style="{StaticResource WindowControlButtonStyle}">
+                        <Image Source="../Images/maximize.png" />
+                    </Button>
+                    <Button Click="CloseButton_Click" Style="{StaticResource WindowControlButtonStyle}">
+                        <Image Source="../Images/close.png" />
+                    </Button>
+                </StackPanel>
+            </Grid>
+
+            <!--  页面内容区域  -->
             <Border
-                x:Name="mask"
-                Background="{StaticResource ForegroundLightColorBrush}"
-                CornerRadius="{Binding WindowCornerRadius}" />
-
-            <!--  窗口边界和阴影效果  -->
-            <Border Background="{StaticResource ForegroundLightColorBrush}" CornerRadius="{Binding WindowCornerRadius}">
-                <Border.Effect>
-                    <DropShadowEffect Opacity="0.2" ShadowDepth="0" />
-                </Border.Effect>
+                Grid.Row="1"
+                Background="{StaticResource WordBlueColorBrush}"
+                ClipToBounds="True">
+                <Border>
+                    <Border.Background>
+                        <ImageBrush
+                            ImageSource="../Images/Background/emoji-background.png"
+                            TileMode="Tile"
+                            Viewport="0 0 500 500"
+                            ViewportUnits="Absolute" />
+                    </Border.Background>
+                    <controls:PageHostControl CurPage="{Binding CurrentPage, Converter={converters:ApplicationPageConverter}}" />
+                </Border>
             </Border>
 
-            <Grid>
-                <!--  不透明蒙版  -->
-                <Grid.OpacityMask>
-                    <VisualBrush Visual="{Binding ElementName=mask}" />
-                </Grid.OpacityMask>
+            <!--  暗淡层  -->
+            <Border
+                x:Name="DimmedOverlay"
+                Grid.Row="1"
+                Panel.ZIndex="10"
+                Background="{StaticResource ForegroundVeryDarkColorBrush}"
+                Opacity="0.3"
+                Visibility="{Binding DimmedOverlayVisible, Converter={converters:BoolToVisibilityConverter}, ConverterParameter=True}" />
 
-                <Grid.RowDefinitions>
-                    <!--  标题栏  -->
-                    <RowDefinition Height="42" />
-                    <!--  页面内容区域  -->
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-
-                <!--  标题栏  -->
-                <Grid Grid.Row="0">
-                    <Grid.ColumnDefinitions>
-                        <!--  icon  -->
-                        <ColumnDefinition Width="auto" />
-                        <!--  标题  -->
-                        <ColumnDefinition Width="*" />
-                        <!--  窗口按钮  -->
-                        <ColumnDefinition Width="auto" />
-                    </Grid.ColumnDefinitions>
-
-                    <Button Click="IconButton_click" Style="{StaticResource SystemIconButtonStyle}">
-                        <Image Source="../Images/Logo/logo-small.png" />
-                    </Button>
-
-                    <Viewbox
-                        Grid.Column="0"
-                        Grid.ColumnSpan="3"
-                        Margin="5">
-                        <TextBlock
-                            HorizontalAlignment="Center"
-                            FontFamily="{StaticResource LatoBold}"
-                            FontSize="{StaticResource FontSizeL}">
-                            <Run Foreground="{StaticResource WordOrangeColorBrush}" Text="W" />
-                            <Run Foreground="{StaticResource WordBlueColorBrush}" Text="O" />
-                            <Run Foreground="{StaticResource WordRedColorBrush}" Text="R" />
-                            <Run Foreground="{StaticResource WordGreenColorBrush}" Text="D" />
-                        </TextBlock>
-                    </Viewbox>
-
-                    <StackPanel Grid.Column="2" Orientation="Horizontal">
-                        <Button Command="{Binding MinimizeCommand}" Style="{StaticResource WindowControlButtonStyle}">
-                            <Image Source="../Images/minimize.png" />
-                        </Button>
-                        <Button Command="{Binding MaximizeCommand}" Style="{StaticResource WindowControlButtonStyle}">
-                            <Image Source="../Images/maximize.png" />
-                        </Button>
-                        <Button Click="CloseButton_Click" Style="{StaticResource WindowControlButtonStyle}">
-                            <Image Source="../Images/close.png" />
-                        </Button>
-                    </StackPanel>
-                </Grid>
-
-                <!--  页面内容区域  -->
-                <Border
-                    Grid.Row="1"
-                    Background="{StaticResource WordBlueColorBrush}"
-                    ClipToBounds="True">
-                    <Border>
-                        <Border.Background>
-                            <ImageBrush
-                                ImageSource="../Images/Background/emoji-background.png"
-                                TileMode="Tile"
-                                Viewport="0 0 500 500"
-                                ViewportUnits="Absolute" />
-                        </Border.Background>
-                        <controls:PageHostControl CurPage="{Binding CurrentPage, Converter={converters:ApplicationPageConverter}}" />
-                    </Border>
-                </Border>
-
-                <!--  暗淡层  -->
-                <Border
-                    x:Name="DimmedOverlay"
-                    Grid.Row="1"
-                    Panel.ZIndex="10"
-                    Background="{StaticResource ForegroundVeryDarkColorBrush}"
-                    Opacity="0.3"
-                    Visibility="{Binding DimmedOverlayVisible, Converter={converters:BoolToVisibilityConverter}, ConverterParameter=True}" />
-
-            </Grid>
         </Grid>
-    </Border>
+    </Grid>
 </Window>
